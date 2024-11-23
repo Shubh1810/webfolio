@@ -57,7 +57,7 @@ const HeroSection: React.FC = () => {
   }, [vantaEffect]);
 
   return (
-    <div className="relative h-[50vh] w-full -mt-3">
+    <div className="relative h-[60vh] w-full -mt-3">
       {/* Vanta container */}
       <div 
         ref={vantaRef}
@@ -67,10 +67,10 @@ const HeroSection: React.FC = () => {
       {/* Edge blending gradients */}
       <div className="absolute left-0 top-0 w-full h-full z-[1]">
         {/* Top blend */}
-        <div className="absolute -top-10 w-full h-40 bg-gradient-to-b from-black via-black/95 to-transparent" />
+        <div className="absolute -top-14 w-full h-40 bg-gradient-to-b from-black via-black/95 to-transparent" />
         
         {/* Bottom blend - darker and more gradual */}
-        <div className="absolute -bottom-3 w-full h-48 bg-gradient-to-t from-black via-black/95 to-transparent" />
+        <div className="absolute -bottom-12 w-full h-60 bg-gradient-to-t from-black via-black/90 to-transparent" />
       </div>
       
       {/* Hero Content */}

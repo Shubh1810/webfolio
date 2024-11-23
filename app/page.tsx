@@ -18,11 +18,11 @@ export default function HomePage() {
           <section id="about" className="mt-80 w-screen">
             <div className="text-[clamp(6rem,20vw,25rem)] font-[169] italic mb-20">
               <TextHoverEffect 
-                text="About Me" 
+                text="Tech Stack" 
                 duration={0.4}
               />
             </div>
-            <p>Information about yourself&hellip;</p>
+            <p>Python,Flask,Next.js&hellip;</p>
           </section>
         </AnimatedSection>
         <AnimatedSection>
