@@ -4,7 +4,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 import { FlipWords } from '../../Components/Common/ui/flip-words';
-import { TextHoverEffect } from '../../Components/Common/ui/text-hover-effect';
 import { Button } from '../Common/ui/button';
 
 // Define a type for the Vanta effect
@@ -40,45 +39,44 @@ const HeroSection: React.FC = () => {
               mouseControls: true,
               touchControls: true,
               gyroControls: false,
-              minHeight: 200.00,
-              
-              scale: 1.00,
-              scaleMobile: 1.00,
+              minHeight: 200.0,
+              scale: 1.0,
+              scaleMobile: 1.0,
               color: 0x10105,
-              shininess: 37.00,
-              waveHeight: 25.00,
+              shininess: 37.0,
+              waveHeight: 25.0,
               zoom: 0.75
             })
-          )
+          );
         }
         return () => {
-          if (vantaEffect) vantaEffect.destroy()
-        }
-      }
-    }
-  }, [vantaEffect])
+          if (vantaEffect) vantaEffect.destroy();
+        };
+      };
+    };
+  }, [vantaEffect]);
 
   return (
     <div className="relative h-[50vh] w-full -mt-3">
       {/* Vanta container */}
       <div 
         ref={vantaRef}
-        className="absolute left-1/2 -translate-x-1/2 w-screen h-[50vh] z-0"
+        className="absolute left-0 top-0 w-full h-full z-0"
       />
 
       {/* Edge blending gradients */}
-      <div className="absolute left-1/2 -translate-x-1/2 w-screen h-[50vh] z-[1]">
+      <div className="absolute left-0 top-0 w-full h-full z-[1]">
         {/* Top blend */}
         <div className="absolute top-0 w-full h-40 bg-gradient-to-b from-black via-black/95 to-transparent" />
         
         {/* Bottom blend - darker and more gradual */}
-        <div className="absolute bottom-0 w-full h-48 bg-gradient-to-t from-black via-black/90 to-transparent" />
+        <div className="absolute bottom-0 w-full h-48 bg-gradient-to-t from-black via-black/95 to-transparent" />
       </div>
       
       {/* Hero Content */}
-      <div className="relative z-[2] h-full">
+      <div className="relative z-[2] h-full flex flex-col items-start justify-start p-8">
         <motion.h1
-          className="absolute top-8 left-0 right-0 mx-auto w-fit text-3xl md:text-4xl px-4 py-2 bg-black/10 backdrop-blur-sm rounded-full"
+          className="bg-clip-text text-transparent text-center bg-gradient-to-br from-gray-200 via-gray-400 to-gray-600 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
@@ -86,32 +84,28 @@ const HeroSection: React.FC = () => {
             ease: "easeOut"
           }}
         >
-          <TextHoverEffect text="Shubh Sheth" duration={0.4} className="font-bold text-4xl md:text-5xl" />
+          Shubh Sheth
         </motion.h1>
 
-        <div className="flex flex-col items-center justify-center h-full font-bold">
-          <h2 className="text-xl md:text-2xl mb-8">
-            <div className="text-base md:text-lg font-medium text-neutral-800 dark:text-neutral-200 font-['SF Pro Display']">
-              <FlipWords 
-                words={["Generative AI Developer", "Web3 | Crypto Enthusiast", "Machine Learning Engineer", "AI Researcher", "Tech Innovator"]}
-                duration={2000}
-                className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500"
-              />
-            </div>
-          </h2>
-          
-          <div className="flex gap-6 justify-center md:flex-row flex-col">
-            <Button
-              text="View My Work"
-              href="#projects"
-              icon={<FiArrowRight className="h-6 w-6" />}
-            />
-            <Button
-              text="Contact Me"
-              href="#contact"
-              icon={<FiArrowRight className="h-6 w-6" />}
-            />
-          </div>
+        <div className="mt-4 text-base md:text-xl font-mono">
+          <FlipWords 
+            words={["Generative AI Developer", "Web3 | Crypto Enthusiast", "Machine Learning Engineer", "AI Researcher", "Tech Innovator"]}
+            duration={2000}
+            className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-500 font-mono"
+          />
+        </div>
+        
+        <div className="flex gap-6 justify-start mt-8 flex-row">
+          <Button
+            text="View My Work"
+            href="#projects"
+            icon={<FiArrowRight className="h-6 w-6" />}
+          />
+          <Button
+            text="Contact Me"
+            href="#contact"
+            icon={<FiArrowRight className="h-6 w-6" />}
+          />
         </div>
       </div>
     </div>

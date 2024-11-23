@@ -2,6 +2,7 @@
 import React from 'react';
 import HeroSection from './Components/HeroSection/HeroSection';
 import { AnimatedSection } from './Components/Common/AnimatedSection';
+import { TextHoverEffect } from './Components/Common/ui/text-hover-effect';
 import styles from './Home.module.css';
 
 export default function HomePage() {
@@ -14,20 +15,32 @@ export default function HomePage() {
           <HeroSection />
         </div>
         <AnimatedSection>
-          <section id="about">
-            <h2>About Me</h2>
+          <section id="about" className="mt-80 w-screen">
+            <TextHoverEffect 
+              text="About Me" 
+              duration={0.4}
+              className="text-[clamp(6rem,20vw,25rem)] font-[169] italic mb-20"
+            />
             <p>Information about yourself&hellip;</p>
           </section>
         </AnimatedSection>
         <AnimatedSection>
-          <section id="projects">
-            <h2>Projects</h2>
+          <section id="projects" className="mt-40">
+            <TextHoverEffect 
+              text="Projects" 
+              duration={0.4}
+              className="text-[clamp(6rem,20vw,25rem)] font-[169] italic mb-20"
+            />
             <p>Showcase your projects&hellip;</p>
           </section>
         </AnimatedSection>
         <AnimatedSection>
-          <section id="contact">
-            <h2>Contact</h2>
+          <section id="contact" className="mt-40">
+            <TextHoverEffect 
+              text="Contact" 
+              duration={0.4}
+              className="text-[clamp(6rem,20vw,25rem)] font-[169] italic mb-20"
+            />
             <p>How to reach you&hellip;</p>
           </section>
         </AnimatedSection>
