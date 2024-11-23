@@ -10,6 +10,13 @@ import { cn } from "../../../lib/utils";
 import Link from "next/link";
 import { HiHome, HiUser, HiMail, HiCreditCard } from 'react-icons/hi';
 
+// Define a type for nav items
+interface NavItem {
+  name: string;
+  link: string;
+  icon: React.ReactNode;
+}
+
 export const FloatingNav = ({
   className,
 }: {
@@ -43,7 +50,7 @@ export const FloatingNav = ({
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
-      let direction = current! - scrollYProgress.getPrevious()!;
+      const direction = current! - scrollYProgress.getPrevious()!;
 
       if (direction > 0) {
         setVisible(false);

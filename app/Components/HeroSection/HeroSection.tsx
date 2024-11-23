@@ -34,7 +34,7 @@ const HeroSection: React.FC = () => {
       loadVanta.onload = () => {
         if (!vantaEffect) {
           setVantaEffect(
-            // @ts-ignore
+            // @ts-expect-error VANTA is loaded dynamically
             VANTA.WAVES({
               el: vantaRef.current,
               mouseControls: true,
@@ -59,23 +59,20 @@ const HeroSection: React.FC = () => {
   }, [vantaEffect])
 
   return (
-    <div className="relative h-[60vh] w-full">
+    <div className="relative h-[50vh] w-full -mt-3">
       {/* Vanta container */}
       <div 
         ref={vantaRef}
-        className="absolute left-1/2 -translate-x-1/2 w-screen z-0"
+        className="absolute left-1/2 -translate-x-1/2 w-screen h-[50vh] z-0"
       />
 
-      {/* Gradient overlays - reduced opacity */}
-      <div className="absolute inset-0 z-[1] pointer-events-none">
+      {/* Edge blending gradients */}
+      <div className="absolute left-1/2 -translate-x-1/2 w-screen h-[50vh] z-[1]">
         {/* Top blend */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black/40 to-transparent" />
+        <div className="absolute top-0 w-full h-40 bg-gradient-to-b from-black via-black/95 to-transparent" />
         
-        {/* Bottom blend */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black/40 to-transparent" />
-        
-        {/* Very subtle radial overlay */}
-        <div className="absolute inset-0 bg-gradient-radial from-transparent to-transparent" />
+        {/* Bottom blend - darker and more gradual */}
+        <div className="absolute bottom-0 w-full h-48 bg-gradient-to-t from-black via-black/90 to-transparent" />
       </div>
       
       {/* Hero Content */}

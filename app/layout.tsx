@@ -1,11 +1,7 @@
 // app/layout.tsx
 import './globals.css';
-import ThreeScript from './Components/ThreeScript'
-import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
 import { Metadata } from 'next';
-import Script from 'next/script'
-import HeroSection from './Components/HeroSection/HeroSection';
 import { FloatingNav } from './Components/Common/ui/floating-navbar';
 
 export const metadata: Metadata = {
