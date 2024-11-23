@@ -1,71 +1,79 @@
 'use client';
 // components/HeroSection/HeroSection.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
-import Button from '../Common/ui/button';
-import GLOBE from 'vanta/dist/vanta.globe.min';
-import * as THREE from 'three';
 import { FlipWords } from "../flip-words";
 import { TextHoverEffect } from "../ui/text-hover-effect";
+import * as THREE from 'three';
 
 const HeroSection: React.FC = () => {
-  const vantaRef = React.useRef<HTMLDivElement>(null);
+  const vantaRef = useRef<HTMLDivElement>(null);
   const [vantaEffect, setVantaEffect] = useState<any>(null);
-  const roles = [
-    "Generative AI Developer",
-    "Web3 | Crypto Enthusiast",
-    "Machine Learning Engineer",
-    "AI Researcher",
-    "Tech Innovator"
-  ];
 
   useEffect(() => {
-    if (!vantaEffect && typeof window !== 'undefined') {
-      setVantaEffect(
-        GLOBE({
-          el: vantaRef.current,
-          THREE: THREE,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          color: 0x0077ff,
-          backgroundColor: 0x0,
-          size: 1.50,
-          speed: 1.0,
-          points: 10.00,
-          maxDistance: 25.00,
-          spacing: 15.00
-        })
-      );
+    // Load THREE.js first
+    const loadThree = document.createElement('script');
+    loadThree.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js';
+    loadThree.async = false;
+    document.body.appendChild(loadThree);
+
+    // Load Vanta after THREE.js
+    loadThree.onload = () => {
+      const loadVanta = document.createElement('script');
+      loadVanta.src = 'https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js';
+      loadVanta.async = false;
+      document.body.appendChild(loadVanta);
+
+      // Initialize Vanta effect after scripts are loaded
+      loadVanta.onload = () => {
+        if (!vantaEffect) {
+          setVantaEffect(
+            // @ts-ignore
+            VANTA.WAVES({
+              el: vantaRef.current,
+              mouseControls: true,
+              touchControls: true,
+              gyroControls: false,
+              minHeight: 200.00,
+              minWidth: 200.00,
+              scale: 1.00,
+              scaleMobile: 1.00,
+              color: 0x10105,
+              shininess: 37.00,
+              waveHeight: 25.00,
+              zoom: 0.75
+            })
+          )
+        }
+        return () => {
+          if (vantaEffect) vantaEffect.destroy()
+        }
+      }
     }
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
-  }, [vantaEffect]);
+  }, [vantaEffect])
 
   return (
-    <section 
-      className="relative w-full h-screen overflow-hidden rounded-b-[100px]" 
-      id="home" 
-      ref={vantaRef}
-    >
-      <div className="relative z-10 h-full flex flex-col justify-center items-center text-white text-center -ml-[40%] -mt-[16%]">
+    <section
+    ref={vantaRef}
+    className="relative h-[50vh] w-full">
+      {/* Hero Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full pt-16">
         <motion.h1
-          className="text-4xl md:text-6xl"
+          className="text-5xl md:text-7xl mb-8 px-6 py-3 bg-black/10 backdrop-blur-sm rounded-full"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ 
+            duration: 0.8,
+            ease: "easeOut"
+          }}
         >
-          <TextHoverEffect text="Shubh Sheth" duration={0.3} />
+          <TextHoverEffect text="Shubh Sheth" duration={0.4} />
         </motion.h1>
         <h2 className="text-xl md:text-2xl mb-8">
           <div className="text-xl md:text-2xl font-medium text-neutral-800 dark:text-neutral-200">
             <FlipWords 
-              words={roles}
+              words={["Generative AI Developer", "Web3 | Crypto Enthusiast", "Machine Learning Engineer", "AI Researcher", "Tech Innovator"]}
               duration={2000}
               className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500"
             />
@@ -93,12 +101,6 @@ const HeroSection: React.FC = () => {
           </a>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center">
-          <span className="text-2xl mb-2 animate-bounce">
-            <FiArrowRight className="h-6 w-6 text-white" />
-          </span>
-          <span className="text-sm text-neutral-500">Scroll Down</span>
-        </div>
       </div>
     </section>
   );

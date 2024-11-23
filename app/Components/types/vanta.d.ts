@@ -1,25 +1,31 @@
-declare module 'vanta/dist/vanta.globe.min' {
-    interface VantaGlobeConfig {
-        el: HTMLElement | null;
-        THREE: typeof THREE;
-        mouseControls: boolean;
-        touchControls: boolean;
-        gyroControls: boolean;
-        minHeight: number;
-        minWidth: number;
-        scale: number;
-        scaleMobile: number;
-        color: number;
-        backgroundColor: number;
-        size: number;
-        speed: number;
+// types/vanta.d.ts
+declare module 'vanta/dist/vanta.waves.min' {
+    import * as THREE from 'three';
+  
+    interface VantaEffect {
+      destroy: () => void;
+      // Add other methods if necessary
     }
-
-    interface VantaGlobeEffect {
-        destroy: () => void;
+  
+    interface VantaOptions {
+      el: HTMLElement;
+      THREE: typeof THREE;
+      mouseControls: boolean;
+      touchControls: boolean;
+      gyroControls: boolean;
+      minHeight: number;
+      minWidth: number;
+      scale: number;
+      scaleMobile: number;
+      color: number;
+      shininess: number;
+      waveHeight: number;
+      zoom: number;
+      backgroundColor: number;
+      // Include any additional options you use
     }
-
-    function GLOBE(config: VantaGlobeConfig): VantaGlobeEffect;
-    
-    export default GLOBE;
-}
+  
+    const WAVES: (options: VantaOptions) => VantaEffect;
+  
+    export default WAVES;
+  }

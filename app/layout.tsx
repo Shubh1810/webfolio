@@ -1,8 +1,11 @@
 // app/layout.tsx
 import './globals.css';
+import ThreeScript from './Components/ThreeScript'
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
 import { Metadata } from 'next';
+import Script from 'next/script'
+import HeroSection from './Components/HeroSection/HeroSection';
 
 export const metadata: Metadata = {
   title: 'Shubh Sheth | Portfolio',
@@ -16,7 +19,7 @@ export const metadata: Metadata = {
     siteName: 'Shubh Sheth Portfolio',
     images: [
       {
-        url: '/og-image.png', // Add your Open Graph image
+        url: '/profile.jpeg', // Add your Open Graph image
         width: 1200,
         height: 630,
       }
@@ -40,9 +43,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-gray-900 text-white">
+      <body className="min-h-screen">
+        <HeroSection />
         <Navbar />
-        <main className="pt-16"> {/* Add padding-top equal to navbar height */}
+        <main className="pt-16">
           {children}
         </main>
         <Footer />
