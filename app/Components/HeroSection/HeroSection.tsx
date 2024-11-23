@@ -2,7 +2,7 @@
 // components/HeroSection/HeroSection.tsx
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiArrowRight } from 'react-icons/fi';
+import { AiFillDashboard } from 'react-icons/ai';
 import { FlipWords } from '../../Components/Common/ui/flip-words';
 import { Button } from '../Common/ui/button';
 
@@ -43,7 +43,7 @@ const HeroSection: React.FC = () => {
               scale: 1.0,
               scaleMobile: 1.0,
               color: 0x10105,
-              shininess: 37.0,
+              shininess: 45.0,
               waveHeight: 25.0,
               zoom: 0.75
             })
@@ -97,15 +97,12 @@ const HeroSection: React.FC = () => {
         
         <div className="flex gap-6 justify-start mt-8 flex-row">
           <Button
-            text="View My Work"
-            href="#projects"
-            icon={<FiArrowRight className="h-6 w-6" />}
+            text="Beta"
+            href="/beta"
+            icon={<AiFillDashboard className="h-6 w-6" />}
+
           />
-          <Button
-            text="Contact Me"
-            href="#contact"
-            icon={<FiArrowRight className="h-6 w-6" />}
-          />
+          
         </div>
       </div>
     </div>

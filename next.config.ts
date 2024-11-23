@@ -2,11 +2,19 @@ import type { NextConfig } from "next";
 import path from 'path';
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
   webpack: (config) => {
-    // Add canvas to externals for Three.js compatibility
     config.externals = [...(config.externals || []), { canvas: 'canvas' }];
     
-    // Enhanced alias configuration
     config.resolve = {
       ...config.resolve,
       alias: {
