@@ -27,28 +27,25 @@ export const SkylineOverlay = () => {
     return () => window.removeEventListener('resize', updateZoom);
   }, []);
 
+  const styles = {
+    backgroundImage: "url('/skyline.jpg')",
+    backgroundSize: `${zoom * 100}% auto`,
+    backgroundPosition: 'center top',
+    backgroundRepeat: 'no-repeat',
+    height: '120%',
+    filter: 'grayscale(80%) brightness(85%)',
+    transform: `translateY(-${(zoom - 1) * 20}px)`,
+  } as const;
+
   return (
     <div className="absolute inset-0 z-0 overflow-hidden h-[60vh] -mt-3">
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.433 }}
+        animate={{ opacity: 0.2 }}
         transition={{ duration: 1.5 }}
-        className="absolute inset-0 bg-cover bg-center transform -translate-y-12 grayscale"
-        style={{
-          backgroundImage: "url('/skyline.jpg')",
-          backgroundSize: '100% auto',
-          backgroundPosition: 'center top',
-          backgroundRepeat: 'no-repeat',
-          height: '120%',
-          filter: 'grayscale(100%) brightness(85%)',
-        }}
+        className="absolute inset-0 bg-cover bg-center grayscale"
+        style={styles}
       />
-      
-      <div className="absolute inset-0">
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black via-black/80 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-[45vh] bg-gradient-to-t from-black via-black/95 to-transparent" />
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
     </div>
   );
 }; 
