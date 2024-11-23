@@ -21,10 +21,10 @@ const AboutPage: React.FC = () => {
             </div>
             <div className="md:ml-8">
               <p className="text-lg md:text-xl mb-4">
-                Hello! I'm Shubh Sheth, a passionate Web Developer & Designer with a knack for creating sleek and user-friendly websites. I specialize in building responsive and interactive web applications using modern technologies like Next.js, React, and Tailwind CSS.
+                Hello! I&apos;m Shubh Sheth, a passionate Web Developer & Designer with a knack for creating sleek and user-friendly websites. I specialize in building responsive and interactive web applications using modern technologies like Next.js, React, and Tailwind CSS.
               </p>
               <p className="text-lg md:text-xl">
-                My journey in web development has equipped me with the skills to tackle complex challenges and deliver solutions that not only meet but exceed client expectations. I'm always eager to learn and embrace new technologies to enhance my craft.
+                My journey in web development has equipped me with the skills to tackle complex challenges and deliver solutions that not only meet but exceed client expectations. I&apos;m always eager to learn and embrace new technologies to enhance my craft.
               </p>
             </div>
           </div>

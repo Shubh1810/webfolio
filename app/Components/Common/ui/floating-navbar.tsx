@@ -25,7 +25,7 @@ export const FloatingNav = ({
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     {
       name: "",
       link: "/",
@@ -79,7 +79,7 @@ export const FloatingNav = ({
           className
         )}
       >
-        {navItems.map((navItem: any, idx: number) => (
+        {navItems.map((navItem: NavItem, idx: number) => (
           <Link
             key={`link=${idx}`}
             href={navItem.link}
