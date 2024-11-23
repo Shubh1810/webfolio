@@ -1,22 +1,17 @@
 'use client';
 // components/HeroSection/HeroSection.tsx
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 import Button from '../Common/ui/button';
-import styles from './HeroSection.module.css';
-import GLOBE from 'vanta/dist/vanta.globe.min'; // Import the desired Vanta effect
+import GLOBE from 'vanta/dist/vanta.globe.min';
 import * as THREE from 'three';
 import { FlipWords } from "../flip-words";
-
-// Add this type definition
-type VantaEffect = {
-  destroy: () => void;
-} | null;
+import { TextHoverEffect } from "../ui/text-hover-effect";
 
 const HeroSection: React.FC = () => {
-  const vantaRef = useRef<HTMLDivElement>(null);
-  const [vantaEffect, setVantaEffect] = useState<VantaEffect>(null);
+  const vantaRef = React.useRef<HTMLDivElement>(null);
+  const [vantaEffect, setVantaEffect] = useState<any>(null);
   const roles = [
     "Generative AI Developer",
     "Web3 | Crypto Enthusiast",
@@ -24,7 +19,6 @@ const HeroSection: React.FC = () => {
     "AI Researcher",
     "Tech Innovator"
   ];
-
 
   useEffect(() => {
     if (!vantaEffect && typeof window !== 'undefined') {
@@ -35,14 +29,16 @@ const HeroSection: React.FC = () => {
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          minHeight: 800,
-          minWidth: 200,
+          minHeight: 200,
           scale: 1.0,
           scaleMobile: 1.0,
           color: 0x0077ff,
           backgroundColor: 0x0,
           size: 1.50,
-          speed: 1.0
+          speed: 1.0,
+          points: 10.00,
+          maxDistance: 25.00,
+          spacing: 15.00
         })
       );
     }
@@ -52,51 +48,57 @@ const HeroSection: React.FC = () => {
   }, [vantaEffect]);
 
   return (
-    <section className={styles.hero} id="home" ref={vantaRef}>
-      <div className={styles.heroContent}>
+    <section 
+      className="relative w-full h-screen overflow-hidden rounded-b-[100px]" 
+      id="home" 
+      ref={vantaRef}
+    >
+      <div className="relative z-10 h-full flex flex-col justify-center items-center text-white text-center -ml-[40%] -mt-[16%]">
         <motion.h1
-          className={styles.title}
+          className="text-4xl md:text-6xl"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Shubh Sheth
+          <TextHoverEffect text="Shubh Sheth" duration={0.3} />
         </motion.h1>
-        <motion.p
-          className={styles.subtitle}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-        <div className="text-xl md:text-2xl font-medium text-neutral-800 dark:text-neutral-200">
-        <FlipWords 
-          words={roles}
-          duration={2000}
-          className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500"
-        />
+        <h2 className="text-xl md:text-2xl mb-8">
+          <div className="text-xl md:text-2xl font-medium text-neutral-800 dark:text-neutral-200">
+            <FlipWords 
+              words={roles}
+              duration={2000}
+              className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500"
+            />
+          </div>
+        </h2>
+        
+        <div className="flex gap-4 justify-center md:flex-row flex-col">
+          <a 
+            className="flex items-center px-6 py-3 bg-white/20 text-white rounded-lg transition-all duration-300 hover:scale-105 hover:bg-white/10 backdrop-blur-0 relative group"
+            href="#projects"
+          >
+            View My Work
+            <span className="ml-2 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 animate-wiggle">
+              <FiArrowRight className="h-6 w-6 text-white" />
+            </span>
+          </a>
+          <a 
+            className="flex items-center px-6 py-3 bg-white/20 text-white rounded-lg transition-all duration-300 hover:scale-105 hover:bg-white/10 backdrop-blur-0 relative group"
+            href="#contact"
+          >
+            Contact Me
+            <span className="ml-2 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 animate-wiggle">
+              <FiArrowRight className="h-6 w-6 text-white" />
+            </span>
+          </a>
         </div>
 
-        </motion.p>
-        <div className={styles.buttonGroup}>
-          <Button variant="default" size="lg" asChild>
-            <a href="#projects" className={styles.buttonLink}>
-              View My Work <FiArrowRight className={styles.buttonIcon} />
-            </a>
-          </Button>
-          <Button variant="default" size="lg" asChild>
-            <a href="#contact" className={styles.buttonLink}>
-              Contact Me <FiArrowRight className={styles.buttonIcon} />
-            </a>
-          </Button>
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <span className="text-2xl mb-2 animate-bounce">
+            <FiArrowRight className="h-6 w-6 text-white" />
+          </span>
+          <span className="text-sm text-neutral-500">Scroll Down</span>
         </div>
-        <motion.div
-          className={styles.scrollDown}
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <FiArrowRight className={styles.scrollIcon} />
-          <span>Scroll Down</span>
-        </motion.div>
       </div>
     </section>
   );

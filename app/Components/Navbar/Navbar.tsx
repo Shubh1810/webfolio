@@ -18,13 +18,13 @@ const Navbar: React.FC = () => {
         {/* Navigation Links */}
         <ul className={styles.navLinks}>
           <li>
-            <Link href="#home" className={styles.navItem}>
+            <Link href="/" className={styles.navItem}>
               <FiHome className={styles.icon} />
               <span className={styles.tooltip}>Home</span>
             </Link>
           </li>
           <li>
-            <Link href="#about" className={styles.navItem}>
+            <Link href="/about" className={styles.navItem}>
               <FiUser className={styles.icon} />
               <span className={styles.tooltip}>About</span>
             </Link>

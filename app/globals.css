@@ -18,6 +18,11 @@
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
   --border: 214.3 31.8% 91.4%;
+  --yellow-500: #EAB308;
+  --red-500: #EF4444;
+  --blue-500: #3B82F6;
+  --cyan-500: #06B6D4;
+  --violet-500: #8B5CF6;
 }
 
 html,

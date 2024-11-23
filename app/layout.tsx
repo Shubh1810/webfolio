@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Shubh Sheth' }],
   openGraph: {
     title: 'Shubh Sheth | Portfolio',
-    description: 'Personal portfolio showcasing my work as an AI software developer',
+    description: 'Personal portfolio showcasing my work as a software developer',
     url: 'https://shubhsheth.com',
     siteName: 'Shubh Sheth Portfolio',
     images: [
