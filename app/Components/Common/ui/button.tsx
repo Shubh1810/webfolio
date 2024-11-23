@@ -1,44 +1,42 @@
-// components/ui/button.tsx
-import * as React from 'react';
-import { Slot } from '@radix-ui/react-slot';
-import { cn } from '../../../lib/utils';
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'outline' | 'secondary' | 'ghost';
-  size?: 'default' | 'sm' | 'lg';
-  asChild?: boolean;
+"use client";
+import React from "react";
+import { IconClipboard } from "@tabler/icons-react";
+import { cn } from "../../../lib/utils";
+
+interface ButtonProps {
+  text: string;
+  href: string;
+  icon?: React.ReactNode;
+  className?: string;
 }
 
-const buttonVariants = {
-  default: 'bg-blue-600 text-white hover:bg-blue-700',
-  outline: 'border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white',
-  secondary: 'bg-gray-600 text-white hover:bg-gray-700',
-  ghost: 'bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800',
+export const Button = ({
+  text,
+  href,
+  icon,
+  className,
+}: ButtonProps) => {
+  return (
+    <a 
+      href={href}
+      className={cn(
+        "relative inline-flex h-12 overflow-hidden rounded-full p-[1px]",
+        "focus:outline-none focus:ring-2 focus:ring-slate-400",
+        "focus:ring-offset-2 focus:ring-offset-slate-50",
+        className
+      )}
+    >
+      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+        <span className="flex items-center gap-2">
+          {text}
+          {icon && (
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              {icon}
+            </span>
+          )}
+        </span>
+      </span>
+    </a>
+  );
 };
-
-const sizeVariants = {
-  sm: 'px-3 py-1.5 text-sm',
-  default: 'px-4 py-2',
-  lg: 'px-5 py-3 text-lg',
-};
-
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'default', size = 'default', asChild, ...props }, ref) => {
-    const Comp = asChild ? Slot : 'button';
-    return (
-      <Comp
-        className={cn(
-          'inline-flex items-center justify-center rounded-xl font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
-          buttonVariants[variant],
-          sizeVariants[size],
-          className || ''
-        )}
-        ref={ref}
-        {...props}
-      />
-    );
-  }
-);
-
-Button.displayName = 'Button';
-
-export default Button;

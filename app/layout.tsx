@@ -6,6 +6,7 @@ import Footer from './Components/Footer/Footer';
 import { Metadata } from 'next';
 import Script from 'next/script'
 import HeroSection from './Components/HeroSection/HeroSection';
+import { FloatingNav } from './Components/Common/ui/floating-navbar';
 
 export const metadata: Metadata = {
   title: 'Shubh Sheth | Portfolio',
@@ -44,9 +45,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="min-h-screen">
-        <HeroSection />
-        <Navbar />
-        <main className="pt-16">
+        <FloatingNav />
+        <main className="pt-16 pb-32">
+        
+
           {children}
         </main>
         <Footer />

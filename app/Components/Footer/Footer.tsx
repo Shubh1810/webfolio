@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="w-full py-8 px-4 mt-auto border-t border-neutral-800">
+    <footer className="fixed bottom-0 left-0 w-full py-8 px-4 z-10">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-sm text-neutral-400">
           &copy; {new Date().getFullYear()} Shubh Sheth. All rights reserved.

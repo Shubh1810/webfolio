@@ -3,13 +3,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
-import { FlipWords } from "../flip-words";
-import { TextHoverEffect } from "../ui/text-hover-effect";
-import * as THREE from 'three';
+import { FlipWords } from '../../Components/Common/ui/flip-words';
+import { TextHoverEffect } from '../../Components/Common/ui/text-hover-effect';
+import { Button } from '../Common/ui/button';
+
+// Define a type for the Vanta effect
+type VantaEffect = {
+  destroy: () => void;
+} | null;
 
 const HeroSection: React.FC = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
-  const [vantaEffect, setVantaEffect] = useState<any>(null);
+  const [vantaEffect, setVantaEffect] = useState<VantaEffect>(null);
 
   useEffect(() => {
     // Load THREE.js first
@@ -36,7 +41,7 @@ const HeroSection: React.FC = () => {
               touchControls: true,
               gyroControls: false,
               minHeight: 200.00,
-              minWidth: 200.00,
+              
               scale: 1.00,
               scaleMobile: 1.00,
               color: 0x10105,
@@ -54,13 +59,29 @@ const HeroSection: React.FC = () => {
   }, [vantaEffect])
 
   return (
-    <section
-    ref={vantaRef}
-    className="relative h-[50vh] w-full">
+    <div className="relative h-[60vh] w-full">
+      {/* Vanta container */}
+      <div 
+        ref={vantaRef}
+        className="absolute left-1/2 -translate-x-1/2 w-screen z-0"
+      />
+
+      {/* Gradient overlays - reduced opacity */}
+      <div className="absolute inset-0 z-[1] pointer-events-none">
+        {/* Top blend */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black/40 to-transparent" />
+        
+        {/* Bottom blend */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        
+        {/* Very subtle radial overlay */}
+        <div className="absolute inset-0 bg-gradient-radial from-transparent to-transparent" />
+      </div>
+      
       {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full pt-16">
+      <div className="relative z-[2] h-full">
         <motion.h1
-          className="text-5xl md:text-7xl mb-8 px-6 py-3 bg-black/10 backdrop-blur-sm rounded-full"
+          className="absolute top-8 left-0 right-0 mx-auto w-fit text-3xl md:text-4xl px-4 py-2 bg-black/10 backdrop-blur-sm rounded-full"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
@@ -68,41 +89,35 @@ const HeroSection: React.FC = () => {
             ease: "easeOut"
           }}
         >
-          <TextHoverEffect text="Shubh Sheth" duration={0.4} />
+          <TextHoverEffect text="Shubh Sheth" duration={0.4} className="font-bold text-4xl md:text-5xl" />
         </motion.h1>
-        <h2 className="text-xl md:text-2xl mb-8">
-          <div className="text-xl md:text-2xl font-medium text-neutral-800 dark:text-neutral-200">
-            <FlipWords 
-              words={["Generative AI Developer", "Web3 | Crypto Enthusiast", "Machine Learning Engineer", "AI Researcher", "Tech Innovator"]}
-              duration={2000}
-              className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500"
+
+        <div className="flex flex-col items-center justify-center h-full font-bold">
+          <h2 className="text-xl md:text-2xl mb-8">
+            <div className="text-base md:text-lg font-medium text-neutral-800 dark:text-neutral-200 font-['SF Pro Display']">
+              <FlipWords 
+                words={["Generative AI Developer", "Web3 | Crypto Enthusiast", "Machine Learning Engineer", "AI Researcher", "Tech Innovator"]}
+                duration={2000}
+                className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500"
+              />
+            </div>
+          </h2>
+          
+          <div className="flex gap-6 justify-center md:flex-row flex-col">
+            <Button
+              text="View My Work"
+              href="#projects"
+              icon={<FiArrowRight className="h-6 w-6" />}
+            />
+            <Button
+              text="Contact Me"
+              href="#contact"
+              icon={<FiArrowRight className="h-6 w-6" />}
             />
           </div>
-        </h2>
-        
-        <div className="flex gap-4 justify-center md:flex-row flex-col">
-          <a 
-            className="flex items-center px-6 py-3 bg-white/20 text-white rounded-lg transition-all duration-300 hover:scale-105 hover:bg-white/10 backdrop-blur-0 relative group"
-            href="#projects"
-          >
-            View My Work
-            <span className="ml-2 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 animate-wiggle">
-              <FiArrowRight className="h-6 w-6 text-white" />
-            </span>
-          </a>
-          <a 
-            className="flex items-center px-6 py-3 bg-white/20 text-white rounded-lg transition-all duration-300 hover:scale-105 hover:bg-white/10 backdrop-blur-0 relative group"
-            href="#contact"
-          >
-            Contact Me
-            <span className="ml-2 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 animate-wiggle">
-              <FiArrowRight className="h-6 w-6 text-white" />
-            </span>
-          </a>
         </div>
-
       </div>
-    </section>
+    </div>
   );
 };
 

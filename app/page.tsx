@@ -8,7 +8,10 @@ import styles from './Home.module.css';
 export default function HomePage() {
   return (
     <div className={styles.container}>
+      <div className={styles.gridBackground}></div>
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <main className={styles.mainContent}>
+        <HeroSection />
         <AnimatedSection>
           <section id="about">
             <h2>About Me</h2>
