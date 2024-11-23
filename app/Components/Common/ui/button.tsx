@@ -1,7 +1,7 @@
 // components/ui/button.tsx
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
-import { cn } from '@/app/lib/utils';
+import { cn } from '../../../lib/utils';
 import styles from './button.module.css';
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'default' | 'outline' | 'secondary' | 'ghost';

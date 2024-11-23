@@ -8,9 +8,14 @@ import styles from './HeroSection.module.css';
 import GLOBE from 'vanta/dist/vanta.globe.min'; // Import the desired Vanta effect
 import * as THREE from 'three';
 
+// Add this type definition
+type VantaEffect = {
+  destroy: () => void;
+} | null;
+
 const HeroSection: React.FC = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
-  const [vantaEffect, setVantaEffect] = useState<any>(null);
+  const [vantaEffect, setVantaEffect] = useState<VantaEffect>(null);
 
   useEffect(() => {
     if (!vantaEffect && typeof window !== 'undefined') {
