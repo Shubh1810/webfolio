@@ -1,0 +1,28 @@
+/* styles/Home.module.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('/pageBackground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+  
+  .mainContent {
+    flex: 1;
+    padding: 2rem;
+    
+  }
+
+  .mainContent h2 {
+    font-size: 15rem;  /* Larger heading size */
+    margin-bottom: 1.5rem;  /* Optional: adds some spacing below headings */
+    font-weight: 169;
+    font-style: italic;
+  }
+
+  
+
+

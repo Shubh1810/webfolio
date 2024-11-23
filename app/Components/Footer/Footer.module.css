@@ -1,0 +1,25 @@
+/* components/Footer/Footer.module.css */
+.footer {
+    width: 100%;
+    padding: 1.5rem 1.5rem;
+    background-color: #1f2937; /* Tailwind's gray-800 */
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+  }
+  
+  .socialLinks {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .socialLinks a {
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+  
+  .socialLinks a:hover {
+    color: #f0c27b; /* Gold color on hover */
+  }
