@@ -16,31 +16,34 @@ export default function HomePage() {
         </div>
         <AnimatedSection>
           <section id="about" className="mt-80 w-screen">
-            <TextHoverEffect 
-              text="About Me" 
-              duration={0.4}
-              className="text-[clamp(6rem,20vw,25rem)] font-[169] italic mb-20"
-            />
+            <div className="text-[clamp(6rem,20vw,25rem)] font-[169] italic mb-20">
+              <TextHoverEffect 
+                text="About Me" 
+                duration={0.4}
+              />
+            </div>
             <p>Information about yourself&hellip;</p>
           </section>
         </AnimatedSection>
         <AnimatedSection>
           <section id="projects" className="mt-40">
-            <TextHoverEffect 
-              text="Projects" 
-              duration={0.4}
-              className="text-[clamp(6rem,20vw,25rem)] font-[169] italic mb-20"
-            />
+            <div className="text-[clamp(6rem,20vw,25rem)] font-[169] italic mb-20">
+              <TextHoverEffect 
+                text="Projects" 
+                duration={0.4}
+              />
+            </div>
             <p>Showcase your projects&hellip;</p>
           </section>
         </AnimatedSection>
         <AnimatedSection>
           <section id="contact" className="mt-40">
-            <TextHoverEffect 
-              text="Contact" 
-              duration={0.4}
-              className="text-[clamp(6rem,20vw,25rem)] font-[169] italic mb-20"
-            />
+            <div className="text-[clamp(6rem,20vw,25rem)] font-[169] italic mb-20">
+              <TextHoverEffect 
+                text="Contact" 
+                duration={0.4}
+              />
+            </div>
             <p>How to reach you&hellip;</p>
           </section>
         </AnimatedSection>
