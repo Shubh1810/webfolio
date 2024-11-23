@@ -7,6 +7,7 @@ import Button from '../Common/ui/button';
 import styles from './HeroSection.module.css';
 import GLOBE from 'vanta/dist/vanta.globe.min'; // Import the desired Vanta effect
 import * as THREE from 'three';
+import { FlipWords } from "../flip-words";
 
 // Add this type definition
 type VantaEffect = {
@@ -16,6 +17,14 @@ type VantaEffect = {
 const HeroSection: React.FC = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
   const [vantaEffect, setVantaEffect] = useState<VantaEffect>(null);
+  const roles = [
+    "Generative AI Developer",
+    "Web3 | Crypto Enthusiast",
+    "Machine Learning Engineer",
+    "AI Researcher",
+    "Tech Innovator"
+  ];
+
 
   useEffect(() => {
     if (!vantaEffect && typeof window !== 'undefined') {
@@ -59,7 +68,14 @@ const HeroSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          Generative AI Developer
+        <div className="text-xl md:text-2xl font-medium text-neutral-800 dark:text-neutral-200">
+        <FlipWords 
+          words={roles}
+          duration={2000}
+          className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500"
+        />
+        </div>
+
         </motion.p>
         <div className={styles.buttonGroup}>
           <Button variant="default" size="lg" asChild>
@@ -67,7 +83,7 @@ const HeroSection: React.FC = () => {
               View My Work <FiArrowRight className={styles.buttonIcon} />
             </a>
           </Button>
-          <Button variant="outline" size="lg" asChild>
+          <Button variant="default" size="lg" asChild>
             <a href="#contact" className={styles.buttonLink}>
               Contact Me <FiArrowRight className={styles.buttonIcon} />
             </a>
