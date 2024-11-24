@@ -53,6 +53,7 @@ module.exports = {
       animation: {
         'border-rainbow': 'borderRainbow 5s linear infinite',
         'gradient-x': 'gradient-x 5s ease infinite',
+        'glow': 'glow 2s ease-in-out infinite',
       },
       keyframes: {
         borderRainbow: {
@@ -73,7 +74,15 @@ module.exports = {
             'background-size': '200% 200%',
             'background-position': 'left center'
           }
-        }
+        },
+        glow: {
+          '0%, 100%': {
+            'box-shadow': '0 0 4px rgba(139, 92, 246, 0.5), 0 0 8px rgba(139, 92, 246, 0.3)',
+          },
+          '50%': {
+            'box-shadow': '0 0 8px rgba(139, 92, 246, 0.8), 0 0 16px rgba(139, 92, 246, 0.5)',
+          },
+        },
       },
       fontFamily: {
         helvetica: ['Helvetica', 'Arial', 'sans-serif'],

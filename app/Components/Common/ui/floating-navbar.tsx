@@ -84,16 +84,48 @@ export const FloatingNav = ({
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-2 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
+              "relative dark:text-neutral-50 items-center flex space-x-2 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500",
+              "text-sm md:text-base",
+              "transition-all duration-500",
+              "hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.7)]",
+              "after:absolute after:h-[150%] after:w-[150%] after:rounded-full after:-z-10",
+              "after:opacity-0 hover:after:opacity-100",
+              "after:transition-opacity after:duration-300",
+              "after:bg-gradient-to-r after:from-blue-500/30 after:via-violet-500/30 after:to-blue-500/30",
+              "after:blur-xl",
+              "hover:after:animate-pulse",
+              "before:absolute before:h-[120%] before:w-[120%] before:rounded-full before:-z-10",
+              "before:opacity-0 hover:before:opacity-100",
+              "before:transition-opacity before:duration-300",
+              "before:bg-gradient-to-r before:from-blue-400/40 before:via-violet-400/40 before:to-blue-400/40",
+              "before:blur-lg",
+              "before:hover:animate-pulse"
             )}
           >
             {navItem.icon}
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
         ))}
-        <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
+        <button className={cn(
+          "text-xs md:text-sm",
+          "border font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full",
+          "transition-all duration-500",
+          "hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.7)]",
+          "after:absolute after:h-[150%] after:w-[150%] after:rounded-full after:-z-10 after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2",
+          "after:opacity-0 hover:after:opacity-100",
+          "after:transition-opacity after:duration-300",
+          "after:bg-gradient-to-r after:from-blue-500/30 after:via-violet-500/30 after:to-blue-500/30",
+          "after:blur-xl",
+          "hover:after:animate-pulse",
+          "before:absolute before:h-[120%] before:w-[120%] before:rounded-full before:-z-10 before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
+          "before:opacity-0 hover:before:opacity-100",
+          "before:transition-opacity before:duration-300",
+          "before:bg-gradient-to-r before:from-blue-400/40 before:via-violet-400/40 before:to-blue-400/40",
+          "before:blur-lg",
+          "before:hover:animate-pulse"
+        )}>
           <span>Login</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-green-500 to-transparent  h-px" />
+          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-violet-500 to-transparent h-px animate-glow" />
         </button>
       </motion.div>
     </AnimatePresence>
