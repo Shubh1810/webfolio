@@ -13,7 +13,8 @@ const images = [
   "/me.jpeg",
   "/fam.jpeg",
   "/me2.jpeg"
-] as const;
+  
+];
 
 
 export default function HomePage() {
