@@ -76,7 +76,7 @@ const HeroSection: React.FC = () => {
       {/* Hero Content */}
       <div className="relative z-[2] h-full flex flex-col items-start justify-start p-8">
         <motion.h1
-          className="bg-clip-text text-transparent text-center bg-gradient-to-br from-gray-200 via-gray-400 to-gray-600 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
+          className="bg-clip-text text-transparent text-left bg-gradient-to-br from-gray-200 via-gray-400 to-gray-600 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
@@ -84,7 +84,7 @@ const HeroSection: React.FC = () => {
             ease: "easeOut"
           }}
         >
-          Shubh Sheth
+          Hello, <br /> I'm Shubh Sheth
         </motion.h1>
 
         <div className="mt-4 text-base md:text-xl font-mono">

@@ -40,11 +40,24 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen">
+      <body className="min-h-screen bg-transparent">
         <FloatingNav />
-        <main className="pt-16 pb-32">
-        
-
+        <div className="fixed inset-0 bg-black -z-10" />
+        <div 
+          className="fixed inset-0 h-full w-full pointer-events-none -z-[5]"
+          style={{
+            backgroundImage: `radial-gradient(circle at center, white 1px, transparent 1px)`,
+            backgroundSize: '24px 24px',
+            opacity: 0.15
+          }}
+        />
+        <div 
+          className="fixed pointer-events-none inset-0 -z-[1]"
+          style={{
+            background: 'radial-gradient(circle at center, transparent 15%, black)'
+          }}
+        />
+        <main className="relative z-[2] pt-16 pb-32">
           {children}
         </main>
         <Footer />

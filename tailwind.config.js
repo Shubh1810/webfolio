@@ -47,7 +47,8 @@ module.exports = {
         'gradient-rainbow':
           'linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff)',
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'grid': 'linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px)'
+        'grid': 'linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px)',
+        'dot-pattern': 'radial-gradient(circle, currentColor 1px, transparent 1px)',
       },
       animation: {
         'border-rainbow': 'borderRainbow 5s linear infinite',
@@ -94,9 +95,8 @@ module.exports = {
           )}")`,
         }),
         "bg-dot": (value: any) => ({
-          backgroundImage: `url("${svgToDataUri(
-            `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="1.6257413380501518"></circle></svg>`
-          )}")`,
+          backgroundImage: `radial-gradient(circle, ${value} 1px, transparent 1px)`,
+          backgroundSize: '24px 24px',
         }),
       },
       
