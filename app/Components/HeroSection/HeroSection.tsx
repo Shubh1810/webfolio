@@ -84,7 +84,7 @@ const HeroSection: React.FC = () => {
             ease: "easeOut"
           }}
         >
-          Hello, <br /> I'm Shubh Sheth
+          Hello, <br /> I&apos;m Shubh Sheth
         </motion.h1>
 
         <div className="mt-4 text-base md:text-xl font-mono">
