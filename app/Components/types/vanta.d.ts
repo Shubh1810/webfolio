@@ -1,4 +1,6 @@
 // types/vanta.d.ts
+
+
 declare module 'vanta/dist/vanta.waves.min' {
     import * as THREE from 'three';
   

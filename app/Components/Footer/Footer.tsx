@@ -1,88 +1,119 @@
 // components/Footer/Footer.tsx
+'use client'
+
 import React from 'react';
-import { HiMail } from 'react-icons/hi';
+import Image from 'next/image';
+import { useScrollDirection } from '../../hooks/useScrollDirection';
 
 const Footer: React.FC = () => {
+  const scrollDirection = useScrollDirection();
+
   const socialLinks = [
     {
-      frontView: "/icons/github-front.png",
-      sideView: "/icons/github-side.png",
+      sideIcon: "/github-side.png",
       href: "https://github.com/Shubh1810",
       label: "GitHub",
+      glowColor: "rgba(114, 137, 218, 0.8)"
     },
     {
-      frontView: "/icons/linkedin-front.png",
-      sideView: "/icons/linkedin-side.png",
+      sideIcon: "/linkedin-side.png",
       href: "https://linkedin.com/in/shubh-sheth-98219433l",
       label: "LinkedIn",
+      glowColor: "rgba(10, 102, 194, 0.8)"
     },
     {
-      frontView: "/icons/x-front.png",
-      sideView: "/icons/x-side.png",
+      sideIcon: "/x-side.png",
       href: "https://x.com/Shubh_1810",
       label: "X (Twitter)",
+      glowColor: "rgba(29, 161, 242, 0.8)"
     },
     {
-      frontView: "/icons/telegram-front.png",
-      sideView: "/icons/telegram-side.png",
-      href: "https://t.me/yourusername",
+      sideIcon: "/telegram-side.png",
+      href: "https://t.me/BluntSF",
       label: "Telegram",
+      glowColor: "rgba(37, 176, 231, 0.8)"
     },
     {
-      frontView: "/icons/instagram-front.png",
-      sideView: "/icons/instagram-side.png",
-      href: "https://instagram.com/yourusername",
+      sideIcon: "/instagram-side.png",
+      href: "https://instagram.com/shubh.sheth",
       label: "Instagram",
+      glowColor: "rgba(255, 0, 110, 0.8)"
     },
     {
-      frontView: "/icons/snapchat-front.png",
-      sideView: "/icons/snapchat-side.png",
-      href: "https://snapchat.com/add/yourusername",
+      sideIcon: "/snapchat-side.png",
+      href: "https://snapchat.com/add/Shubh-18",
       label: "Snapchat",
+      glowColor: "rgba(255, 255, 0, 0.8)"
     },
     {
-      frontView: "/icons/discord-front.png",
-      sideView: "/icons/discord-side.png",
+      sideIcon: "/discord-side.png",
       href: "https://discord.gg/yourinvite",
       label: "Discord",
+      glowColor: "rgba(114, 137, 218, 0.8)"
     },
     {
-      frontView: "/icons/email-front.png",
-      sideView: "/icons/email-side.png",
+      sideIcon: "/email-side.png",
       href: "mailto:shethshubh@gmail.com",
       label: "Email",
+      glowColor: "rgba(255, 255, 255, 0.8)"
     }
   ];
 
   return (
-    <footer className="fixed bottom-0 left-0 w-full py-8 px-4 z-10">
+    <footer className={`
+      fixed 
+      bottom-0 
+      left-0 
+      w-full 
+      py-8 
+      px-4 
+      z-10
+      transition-transform 
+      duration-500 
+      ease-in-out
+      ${scrollDirection === 'up' ? 'translate-y-full' : 'translate-y-0'}
+    `}>
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-sm text-neutral-400">
           &copy; {new Date().getFullYear()} Shubh Sheth. All rights reserved.
         </p>
         
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3">
           {socialLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative w-6 h-6 group perspective"
+            <a 
+              key={link.label} 
+              href={link.href} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="group relative w-8 h-8 overflow-visible" 
               aria-label={link.label}
+              style={{
+                '--glow-color': link.glowColor
+              } as React.CSSProperties}
             >
-              <div className="relative preserve-3d transition-transform duration-500 ease-out group-hover:rotate-y-90">
-                {/* Front View */}
-                <img
-                  src={link.frontView}
-                  alt={`${link.label} front`}
-                  className="w-6 h-6 absolute backface-hidden"
-                />
-                {/* Side View */}
-                <img
-                  src={link.sideView}
-                  alt={`${link.label} side`}
-                  className="w-6 h-6 absolute backface-hidden rotate-y-90 origin-left"
+              <div className="
+                relative 
+                w-full 
+                h-full 
+                transition-[transform,filter]
+                duration-300 
+                ease-out
+                group-hover:scale-125
+                group-hover:drop-shadow-[0_0_10px_var(--glow-color)]
+              ">
+                <Image 
+                  src={link.sideIcon}
+                  alt={link.label}
+                  width={32}
+                  height={32}
+                  className="
+                    opacity-40 
+                    group-hover:opacity-100 
+                    transition-[opacity,filter]
+                    duration-300
+                    ease-out
+                    group-hover:drop-shadow-[0_0_6px_var(--glow-color)]
+                  "
                 />
               </div>
             </a>

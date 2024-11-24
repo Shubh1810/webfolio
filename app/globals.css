@@ -30,8 +30,8 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: black;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.133);
+
 }
 
 a {
@@ -152,5 +152,27 @@ html, body {
     &:active {
       transform: scale(0.98);
     }
+  }
+}
+
+@layer utilities {
+  .perspective {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-90 {
+    transform: rotateY(90deg);
+  }
+  
+  .origin-left {
+    transform-origin: left;
   }
 }
