@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
       bottom-0 
       left-0 
       w-full 
-      py-8 
+      py-4 
       px-4 
       z-10
       transition-transform 
@@ -73,12 +73,20 @@ const Footer: React.FC = () => {
       ease-in-out
       ${scrollDirection === 'up' ? 'translate-y-full' : 'translate-y-0'}
     `}>
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-sm text-neutral-400">
-          &copy; {new Date().getFullYear()} Shubh Sheth. All rights reserved.
-        </p>
-        
-        <div className="flex items-center gap-3">
+      <div className="
+        max-w-6xl 
+        mx-auto 
+        flex 
+        justify-center 
+        items-center 
+        gap-4
+      ">
+        <div className="
+          flex 
+          items-center 
+          gap-3
+          justify-center
+        ">
           {socialLinks.map((link) => (
             <a 
               key={link.label} 

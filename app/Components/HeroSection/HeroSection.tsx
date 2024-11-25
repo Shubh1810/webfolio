@@ -2,7 +2,7 @@
 // components/HeroSection/HeroSection.tsx
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { AiFillDashboard } from 'react-icons/ai';
+import { TfiSoundcloud } from 'react-icons/tfi';
 import { FlipWords } from '../../Components/Common/ui/flip-words';
 import { Button } from '../Common/ui/button';
 
@@ -45,7 +45,6 @@ const HeroSection: React.FC = () => {
               color: 0x10105,
               shininess: 45.0,
               waveHeight: 25.0,
-              waveSpeed: 0.25,
               zoom: 0.75
             })
           );
@@ -90,7 +89,7 @@ const HeroSection: React.FC = () => {
 
         <div className="mt-4 text-base md:text-xl font-mono">
           <FlipWords 
-            words={["Generative AI Developer", "Web3 | Crypto Enthusiast", "Machine Learning Engineer", "AI Researcher", "Deep Learning Engineer", "Data Analyst"]}
+            words={["AI | ML Developer", "Web3 | Crypto Enthusiast", "Python | R Developer", "Autonomous Systems Developer", ""]}
             duration={2000}
             className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-500 font-mono"
           />
@@ -100,7 +99,7 @@ const HeroSection: React.FC = () => {
           <Button
             text="Beta"
             href="/beta"
-            icon={<AiFillDashboard className="h-6 w-6" />}
+            icon={<TfiSoundcloud className="h-6 w-6" />}
 
           />
           

@@ -7,10 +7,10 @@ import { ParallaxScroll } from './Components/Common/ui/parallax-scroll';
 
 // Method 1: If your images are in the public folder
 const images = [
-  "/me.jpeg",
+  "/me1.jpeg",
   "/fam.jpeg",
   "/me2.jpeg",
-  "/me.jpeg",
+  "/me1.jpeg",
   "/fam.jpeg",
   "/me2.jpeg"
   
