@@ -62,7 +62,7 @@ const HeroSection: React.FC = () => {
   const profileImageSrc = '/main-pic.png'; // Update path as needed
 
   return (
-    <div className="relative h-[60vh] w-full mt-10 md:-mt-3">
+    <div className="relative h-[60vh] w-full mt-20 md:-mt-3">
       {/* Vanta container */}
       <div 
         ref={vantaRef}
