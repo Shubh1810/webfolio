@@ -62,7 +62,7 @@ const HeroSection: React.FC = () => {
   const profileImageSrc = '/main-pic.png'; // Update path as needed
 
   return (
-    <div className="relative h-[60vh] w-full -mt-3">
+    <div className="relative h-[60vh] w-full mt-10 md:-mt-3">
       {/* Vanta container */}
       <div 
         ref={vantaRef}
@@ -90,7 +90,7 @@ const HeroSection: React.FC = () => {
       {/* Hero Content and Profile Picture Container */}
       <div className="relative z-[2] h-full flex flex-col-reverse md:flex-row md:justify-between items-center p-8">
         {/* Hero Content */}
-        <div className="flex flex-col items-start justify-center w-full">
+        <div className="flex flex-col items-start justify-center w-full mt-8 md:mt-0">
           <motion.h1
             className="bg-clip-text text-transparent text-left bg-gradient-to-br from-gray-200 via-gray-400 to-gray-600 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
             initial={{ opacity: 0, y: -50 }}
@@ -122,7 +122,7 @@ const HeroSection: React.FC = () => {
 
         {/* Profile Picture */}
         {profileImageSrc && (
-          <div className="mb-8 md:mb-0 md:mt-0 self-start md:self-center relative">
+          <div className="mb-8 md:mb-0 md:mt-0 self-center md:self-center relative">
             {/* Indian flag gradient glow effect - with smoother fade */}
             <div className="absolute -inset-2 right-[-250px] rounded-l-full bg-gradient-to-b from-orange-400/80 via-slate-100/30 to-green-400/80 opacity-20 blur-2xl" />
             <Image
