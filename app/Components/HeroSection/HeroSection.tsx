@@ -2,7 +2,7 @@
 // components/HeroSection/HeroSection.tsx
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { motion, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { TfiSoundcloud } from 'react-icons/tfi';
 import { FlipWords } from '../../Components/Common/ui/flip-words';
 import { Button } from '../Common/ui/button';
@@ -16,9 +16,6 @@ type VantaEffect = {
 const HeroSection: React.FC = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
   const [vantaEffect, setVantaEffect] = useState<VantaEffect>(null);
-
-  const { scrollY } = useScroll();
-  const [opacity, setOpacity] = useState(1);
 
   useEffect(() => {
     // Load THREE.js first
