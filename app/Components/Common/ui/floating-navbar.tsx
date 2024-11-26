@@ -48,7 +48,7 @@ export const FloatingNav = ({
         "flex max-w-full top-0 left-0 right-0",
         "dark:bg-black/85 bg-white/85 backdrop-blur-md",
         "z-50 px-8 py-2 items-center justify-between",
-        "relative",
+        "relative h-16",
         className
       )}
     >

@@ -62,7 +62,7 @@ const HeroSection: React.FC = () => {
   const profileImageSrc = '/mainpicc.png'; // Update path as needed
 
   return (
-    <div className="relative h-[60vh] w-full mt-20 md:-mt-3">
+    <div className="relative h-[60vh] w-full mt-0">
       {/* Vanta container */}
       <div 
         ref={vantaRef}
@@ -72,7 +72,7 @@ const HeroSection: React.FC = () => {
       {/* Edge blending gradients */}
       <div className="absolute left-0 top-0 w-full h-full z-[1]">
         {/* Top blend */}
-        <div className="absolute -top-14 w-full h-40 bg-gradient-to-b from-black via-black/95 to-transparent" />
+        <div className="absolute top-0 w-full h-40 bg-gradient-to-b from-black via-black/95 to-transparent" />
 
         {/* Bottom blend - darker and more gradual */}
         <div className="absolute -bottom-12 w-full h-60 bg-gradient-to-t from-black via-black/90 to-transparent" />
