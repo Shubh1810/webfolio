@@ -10,7 +10,7 @@ import { FaStar, FaRegStar } from 'react-icons/fa';
 const items = [
   {
     quote: "Python",
-    name: "Numpy | Pandas | Scikit-Learn | PyTorch | TensorFlow | FastAPI | Flask | MySQL | Requests | Matplotlib ",
+    name: "Numpy | Pandas | Scikit-Learn | PyTorch | TensorFlow | FastAPI | Flask | MySQL | Requests | Matplotlib | Object-Oriented Programming | Design Patterns | Deep Learning | Data Structures & Algorithms | RESTful APIs | Docker | Kubernetes | Git | CI/CD Pipelines",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 5 ? 
