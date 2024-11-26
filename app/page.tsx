@@ -8,7 +8,7 @@ import StaticFooter from './Components/StaticFooter/StaticFooter';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import { HeroParallax } from './Components/Common/ui/hero-parallax';
 
-export const products = [
+const products = [
   {
     title: "Moonbeam",
     link: "https://gomoonbeam.com",
