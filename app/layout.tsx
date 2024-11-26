@@ -7,11 +7,11 @@ import { FloatingNav } from './Components/Common/ui/floating-navbar';
 export const metadata: Metadata = {
   title: 'Shubh Sheth | Portfolio',
   description: 'Personal portfolio showcasing my work as an AI software developer',
-  keywords: ['portfolio', 'developer', 'software engineer', 'web development', 'AI developer', 'AI engineer', 'Machine Learning Engineer', 'prompt engineering', 'LLM', 'Generative AI', 'Generative AI Engineer', 'Generative AI Developer', 'Generative AI Engineer', 'Generative AI Developer',],
+  keywords: ['Shubh Sheth', 'Shubh', 'Sheth', 'developer', 'software engineer', 'web development', 'AI developer', 'AI engineer', 'Machine Learning Engineer', 'prompt engineering', 'LLM', 'Generative AI', 'Generative AI Engineer', 'Generative AI Developer',],
   authors: [{ name: 'Shubh Sheth' }],
   openGraph: {
     title: 'Shubh Sheth | Portfolio',
-    description: 'Personal portfolio showcasing my work as a software developer',
+    description: 'Personal portfolio showcasing my work as an AI software developer',
     url: 'https://shubhsheth.com',
     siteName: 'Shubh Sheth Portfolio',
     images: [
@@ -57,9 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             background: 'radial-gradient(circle at center, transparent 15%, black)'
           }}
         />
-        <main className="relative z-[2] pt-16 pb-32">
-          {children}
-        </main>
+        {children}
         <Footer />
       </body>
     </html>

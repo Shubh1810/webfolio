@@ -1,12 +1,33 @@
 // components/Footer/Footer.tsx
-'use client'
+'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useScrollDirection } from '../../hooks/useScrollDirection';
 
 const Footer: React.FC = () => {
   const scrollDirection = useScrollDirection();
+  const [isStaticFooterVisible, setIsStaticFooterVisible] = useState(false);
+
+  useEffect(() => {
+    // Create the observer
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsStaticFooterVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1, // Trigger when even 10% of the target is visible
+      }
+    );
+
+    // Find and observe the static footer
+    const staticFooter = document.querySelector('#static-footer');
+    if (staticFooter) {
+      observer.observe(staticFooter);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const socialLinks = [
     {
@@ -62,16 +83,16 @@ const Footer: React.FC = () => {
   return (
     <footer className={`
       fixed 
-      bottom-0 
       left-0 
       w-full 
       py-4 
       px-4 
       z-10
-      transition-transform 
+      transition-all 
       duration-500 
       ease-in-out
       ${scrollDirection === 'up' ? 'translate-y-full' : 'translate-y-0'}
+      ${isStaticFooterVisible ? 'bottom-24' : 'bottom-0'}
     `}>
       <div className="
         max-w-6xl 

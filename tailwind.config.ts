@@ -50,11 +50,17 @@ module.exports = {
         'dot-pattern': 'radial-gradient(circle, currentColor 1px, transparent 1px)',
       },
       animation: {
+        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         'border-rainbow': 'borderRainbow 5s linear infinite',
         'gradient-x': 'gradient-x 5s ease infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
       },
       keyframes: {
+        scroll: {
+          to: {
+            transform: 'translateX(calc(-50% - 0.5rem))'
+          }
+        },
         borderRainbow: {
           '0%': { 'background-position': '0% 50%' },
           '50%': { 'background-position': '100% 50%' },
@@ -81,7 +87,7 @@ module.exports = {
           },
           '50%': {
             transform: 'scale(1.05)',
-            opacity: 0.8,
+            opacity: 0.3,
           },
         },
       },

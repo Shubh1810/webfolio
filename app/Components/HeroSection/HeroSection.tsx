@@ -1,10 +1,12 @@
 'use client';
 // components/HeroSection/HeroSection.tsx
 import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { motion, useScroll } from 'framer-motion';
 import { TfiSoundcloud } from 'react-icons/tfi';
 import { FlipWords } from '../../Components/Common/ui/flip-words';
 import { Button } from '../Common/ui/button';
+import { TextHoverEffect } from '../Common/ui/text-hover-effect';
 
 // Define a type for the Vanta effect
 type VantaEffect = {
@@ -14,6 +16,9 @@ type VantaEffect = {
 const HeroSection: React.FC = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
   const [vantaEffect, setVantaEffect] = useState<VantaEffect>(null);
+
+  const { scrollY } = useScroll();
+  const [opacity, setOpacity] = useState(1);
 
   useEffect(() => {
     // Load THREE.js first
@@ -56,6 +61,9 @@ const HeroSection: React.FC = () => {
     };
   }, [vantaEffect]);
 
+  // Profile Image Source
+  const profileImageSrc = '/main-pic.png'; // Update path as needed
+
   return (
     <div className="relative h-[60vh] w-full -mt-3">
       {/* Vanta container */}
@@ -68,45 +76,71 @@ const HeroSection: React.FC = () => {
       <div className="absolute left-0 top-0 w-full h-full z-[1]">
         {/* Top blend */}
         <div className="absolute -top-14 w-full h-40 bg-gradient-to-b from-black via-black/95 to-transparent" />
-        
+
         {/* Bottom blend - darker and more gradual */}
         <div className="absolute -bottom-12 w-full h-60 bg-gradient-to-t from-black via-black/90 to-transparent" />
+        <div className="absolute bottom-0 w-full h-[20vh] bg-gradient-to-b from-black via-black/90 to-transparent translate-y-full" />
+
+        {/* Tech Stack Text */}
+        <div className="absolute -bottom-14 left-1/2 -translate-x-1/2 z-[5]">
+          <TextHoverEffect
+            text="Tech Stack"
+            duration={0.4}
+          />
+        </div>
       </div>
       
-      {/* Hero Content */}
-      <div className="relative z-[2] h-full flex flex-col items-start justify-start p-8">
-        <motion.h1
-          className="bg-clip-text text-transparent text-left bg-gradient-to-br from-gray-200 via-gray-400 to-gray-600 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.8,
-            ease: "easeOut"
-          }}
-        >
-          Hello, <br /> I&apos;m Shubh Sheth
-        </motion.h1>
+      {/* Hero Content and Profile Picture Container */}
+      <div className="relative z-[2] h-full flex flex-col-reverse md:flex-row md:justify-between items-center p-8">
+        {/* Hero Content */}
+        <div className="flex flex-col items-start justify-center w-full">
+          <motion.h1
+            className="bg-clip-text text-transparent text-left bg-gradient-to-br from-gray-200 via-gray-400 to-gray-600 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8,
+              ease: "easeOut"
+            }}
+          >
+            Hello, <br /> I&apos;m Shubh Sheth
+          </motion.h1>
 
-        <div className="mt-4 text-base md:text-xl font-mono">
-          <FlipWords 
-            words={["AI | ML Developer", "Web3 | Crypto Enthusiast", "Python | R Developer", "Autonomous Systems Developer", ""]}
-            duration={2000}
-            className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-500 font-mono"
-          />
-        </div>
-        
-        <div className="flex gap-6 justify-start mt-8 flex-row">
-          <Button
-            text="Beta"
-            href="/beta"
-            icon={<TfiSoundcloud className="h-6 w-6" />}
-
-          />
+          <div className="mt-4 text-base md:text-xl font-mono">
+            <FlipWords 
+              words={["AI | ML Developer", "Web3 | Crypto Enthusiast", "Python | R Developer", "Autonomous Systems Developer", "System Architect"]}
+              duration={2000}
+              className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-500 font-mono"
+            />
+          </div>
           
+          <div className="flex gap-6 justify-start mt-8 flex-row">
+            <Button
+              text="Beta"
+              href="/beta"
+              icon={<TfiSoundcloud className="h-6 w-6" />}
+            />
+          </div>
         </div>
+
+        {/* Profile Picture */}
+        {profileImageSrc && (
+          <div className="mb-8 md:mb-0 md:mt-0 self-start md:self-center relative">
+            {/* Indian flag gradient glow effect - with smoother fade */}
+            <div className="absolute -inset-2 right-[-250px] rounded-l-full bg-gradient-to-b from-orange-400/80 via-slate-100/30 to-green-400/80 opacity-20 blur-2xl" />
+            <Image
+              src={profileImageSrc}
+              alt="Profile Picture"
+              width={150}
+              height={150}
+              className="relative object-cover md:w-[200px] md:h-[200px]"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
 };
+          
 
 export default HeroSection;

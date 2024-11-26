@@ -1,14 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import {
   motion,
   AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
 } from "framer-motion";
 import { cn } from "../../../lib/utils";
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 import { HiHome, HiUser, HiMail, HiCreditCard } from 'react-icons/hi';
+import { useScrollDirection } from '../../../hooks/useScrollDirection';
 
 // Define a type for nav items
 interface NavItem {
@@ -22,8 +22,20 @@ export const FloatingNav = ({
 }: {
   className?: string;
 }) => {
-  const { scrollYProgress } = useScroll();
-  const [visible, setVisible] = useState(true);
+  const pathname = usePathname();
+  const scrollDirection = useScrollDirection();
+  const [isAtTop, setIsAtTop] = React.useState(true);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsAtTop(window.scrollY < 10);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const shouldShow = scrollDirection === 'up' || isAtTop;
 
   const navItems: NavItem[] = [
     {
@@ -48,35 +60,24 @@ export const FloatingNav = ({
     },
   ];
 
-  useMotionValueEvent(scrollYProgress, "change", (current) => {
-    if (typeof current === "number") {
-      const direction = current! - scrollYProgress.getPrevious()!;
-
-      if (direction > 0) {
-        setVisible(false);
-      } else {
-        setVisible(true);
-      }
-    }
-  });
-
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        initial={{
-          opacity: 1,
-          y: -100,
-        }}
+        initial={{ y: -100 }}
         animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
+          y: shouldShow ? 0 : -100,
+          opacity: shouldShow ? 1 : 0,
         }}
         transition={{
           duration: 0.2,
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
         }}
         className={cn(
-            "flex max-w-fit fixed top-6 left-0 right-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-black bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] pr-2 pl-8 py-2 items-center justify-center space-x-5",
-            className
+          "flex max-w-fit fixed top-6 left-0 right-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-black/85 bg-white/85 backdrop-blur-md shadow-lg z-[5000] pr-2 pl-8 py-2 items-center justify-center space-x-5",
+          !isAtTop && "shadow-[0_2px_8px_rgba(0,0,0,0.15)]",
+          className
         )}
       >
         {navItems.map((navItem: NavItem, idx: number) => (
@@ -85,6 +86,7 @@ export const FloatingNav = ({
             href={navItem.link}
             className={cn(
               "relative dark:text-neutral-50 items-center flex space-x-2 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500",
+              pathname === navItem.link && "text-violet-500 dark:text-violet-400",
               "text-sm md:text-base",
               "transition-all duration-500",
               "hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.7)]",
