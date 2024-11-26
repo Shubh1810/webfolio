@@ -5,36 +5,63 @@ import { AnimatedSection } from './Components/Common/AnimatedSection';
 import { TextHoverEffect } from './Components/Common/ui/text-hover-effect';
 import { InfiniteMovingCards } from './Components/Common/ui/infinite-moving-cards';
 import StaticFooter from './Components/StaticFooter/StaticFooter';
+import { FaStar, FaRegStar } from 'react-icons/fa';
 
 const items = [
   {
-    quote:
-      "Python",
+    quote: "Python",
     name: "Numpy | Pandas | Scikit-Learn | PyTorch | TensorFlow | FastAPI | Flask | MySQL | Requests | Matplotlib ",
-    title: "5 / 5",
+    title: <div className="flex gap-1">
+      {[...Array(5)].map((_, i) => (
+        i < 5 ? 
+          <FaStar key={i} className="text-violet-800/70" /> :
+          <FaRegStar key={i} className="text-violet-800/70" />
+      ))}
+    </div>,
   },
   {
-    quote:
-      "JavaScript",
+    quote: "JavaScript",
     name: "React.js | Next.js | Node.js | MongoDB",
-    title: "4 / 5",
+    title: <div className="flex gap-1">
+      {[...Array(5)].map((_, i) => (
+        i < 4 ? 
+          <FaStar key={i} className="text-violet-800/70" /> :
+          <FaRegStar key={i} className="text-violet-800/70" />
+      ))}
+    </div>,
   },
   {
     quote: "R",
     name: "R | R Shiny | ggplot2 | dplyr | tidyr | stringr | purrr | readr | lubridate | tidyverse",
-    title: "3 / 5",
+    title: <div className="flex gap-1">
+      {[...Array(5)].map((_, i) => (
+        i < 3 ? 
+          <FaStar key={i} className="text-violet-800/70" /> :
+          <FaRegStar key={i} className="text-violet-800/70" />
+      ))}
+    </div>,
   },
   {
-    quote:
-        "AWS",
+    quote: "AWS",
     name: "AWS | EC2 | S3 | Lambda | CloudFront | CloudWatch | CloudTrail | CloudFormation",
-    title: "3 / 5",
+    title: <div className="flex gap-1">
+      {[...Array(5)].map((_, i) => (
+        i < 3 ? 
+          <FaStar key={i} className="text-violet-800/70" /> :
+          <FaRegStar key={i} className="text-violet-800/70" />
+      ))}
+    </div>,
   },
   {
-    quote:
-      "Docker",
+    quote: "Docker",
     name: "Docker | Docker Compose | Docker Swarm | Docker Machine | Docker Hub",
-    title: "3 / 5",
+    title: <div className="flex gap-1">
+      {[...Array(5)].map((_, i) => (
+        i < 3 ? 
+          <FaStar key={i} className="text-violet-800/70" /> :
+          <FaRegStar key={i} className="text-violet-800/70" />
+      ))}
+    </div>,
   },
 ];
 

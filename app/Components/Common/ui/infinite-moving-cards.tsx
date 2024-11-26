@@ -3,6 +3,12 @@
 import { cn } from "../../../lib/utils";
 import React, { useEffect, useState } from "react";
 
+interface Card {
+  quote: string;
+  name: string;
+  title: string | React.ReactNode;
+}
+
 export const InfiniteMovingCards = ({
   items,
   direction = "left",
@@ -10,11 +16,7 @@ export const InfiniteMovingCards = ({
   pauseOnHover = true,
   className,
 }: {
-  items: {
-    quote: string;
-    name: string;
-    title: string;
-  }[];
+  items: Card[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;

@@ -59,7 +59,7 @@ const HeroSection: React.FC = () => {
   }, [vantaEffect]);
 
   // Profile Image Source
-  const profileImageSrc = '/main-pic.png'; // Update path as needed
+  const profileImageSrc = '/mainpicc.png'; // Update path as needed
 
   return (
     <div className="relative h-[60vh] w-full mt-20 md:-mt-3">
@@ -79,7 +79,7 @@ const HeroSection: React.FC = () => {
         <div className="absolute bottom-0 w-full h-[20vh] bg-gradient-to-b from-black via-black/90 to-transparent translate-y-full" />
 
         {/* Tech Stack Text */}
-        <div className="absolute -bottom-14 left-1/2 -translate-x-1/2 z-[5]">
+            <div className="absolute -bottom-14 left-8 z-[5]">
           <TextHoverEffect
             text="Tech Stack"
             duration={0.4}
@@ -124,7 +124,7 @@ const HeroSection: React.FC = () => {
         {profileImageSrc && (
           <div className="mb-8 md:mb-0 md:mt-0 self-center md:self-center relative">
             {/* Indian flag gradient glow effect - with smoother fade */}
-            <div className="absolute -inset-2 right-[-250px] rounded-l-full bg-gradient-to-b from-orange-400/80 via-slate-100/30 to-green-400/80 opacity-20 blur-2xl" />
+            <div className="absolute -inset-2 right-[-250px] rounded-l-full bg-gradient-to-b from-orange-400/90 via-slate-100/40 to-green-400/90 opacity-20 blur-2xl" />
             <Image
               src={profileImageSrc}
               alt="Profile Picture"
