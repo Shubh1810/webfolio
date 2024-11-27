@@ -4,9 +4,7 @@ import HeroSection from './Components/HeroSection/HeroSection';
 import { AnimatedSection } from './Components/Common/AnimatedSection';
 import { TextHoverEffect } from './Components/Common/ui/text-hover-effect';
 import { InfiniteMovingCards } from './Components/Common/ui/infinite-moving-cards';
-import StaticFooter from './Components/StaticFooter/StaticFooter';
 import { FaStar, FaRegStar } from 'react-icons/fa';
-import { HeroParallax } from './Components/Common/ui/hero-parallax';
 
 const products = [
   {
@@ -180,13 +178,6 @@ export default function HomePage() {
         />
       </div>
 
-      {/* Hero Parallax Section */}
-      {HeroParallax && (
-        <div className="relative mt-20">
-          <HeroParallax products={products} />
-        </div>
-      )}
-
       {/* TEST Content Section */}
       <AnimatedSection>
         <section id="about" className="mt-40 w-full px-4">
@@ -206,7 +197,7 @@ export default function HomePage() {
           </div>
         </section>
       </AnimatedSection>
-      <StaticFooter />
+
     </div>
   );
 }

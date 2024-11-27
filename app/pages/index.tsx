@@ -1,7 +1,7 @@
 "use client";
 // pages/index.tsx
 import React from 'react';
-import Footer from '../Components/Footer/Footer';
+import StaticFooter from '../Components/StaticFooter/StaticFooter';
 import styles from '../styles/Home.module.css';
 import HeroSection from '../Components/HeroSection/HeroSection';
 
@@ -13,7 +13,7 @@ const Home: React.FC = () => {
 
         {/* Other sections */}
       </main>
-      <Footer />
+      <StaticFooter />
     </div>
   );
 };

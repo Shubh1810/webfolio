@@ -1,8 +1,8 @@
 // app/layout.tsx
 import './globals.css';
-import Footer from './Components/Footer/Footer';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { FloatingNav } from './Components/Common/ui/floating-navbar';
+import StaticFooter from './Components/StaticFooter/StaticFooter';
 
 export const metadata: Metadata = {
   title: 'Shubh Sheth | Portfolio',
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         {children}
-        <Footer />
+        <StaticFooter />
       </body>
     </html>
   );
