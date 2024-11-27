@@ -196,7 +196,6 @@ export default function HomePage() {
               duration={0.4}
             />
           </div>
-          <p>Python,Flask,Next.js..........&hellip;</p>
         </section>
         <section id="about" className="mt-40 w-full px-4">
           <div className="text-[clamp(6rem,20vw,25rem)] font-[169] italic mb-20">

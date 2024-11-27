@@ -123,8 +123,12 @@ const HeroSection: React.FC = () => {
         {/* Profile Picture */}
         {profileImageSrc && (
           <div className="mb-8 md:mb-0 md:mt-0 self-center md:self-center relative">
-            {/* Indian flag gradient glow effect - with smoother fade */}
-            <div className="absolute -inset-2 right-[-250px] rounded-l-full bg-gradient-to-b from-orange-400/90 via-slate-100/40 to-green-400/90 opacity-20 blur-2xl" />
+            {/* Black shadow glow effect */}
+            <div className="absolute -inset-2 rounded-full bg-black opacity-100 blur-2xl" />
+            
+            {/* Indian flag gradient glow effect */}
+            <div className="absolute -inset-2 rounded-full bg-gradient-to-b from-orange-400 via-slate-100/80 to-green-400 opacity-40 blur-2xl" />
+            
             <Image
               src={profileImageSrc}
               alt="Profile Picture"

@@ -3,7 +3,8 @@ import React from "react";
 import { cn } from "../../../lib/utils";
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
-import { HiHome, HiUser, HiMail, HiCreditCard } from 'react-icons/hi';
+import { HiHome, HiCode } from 'react-icons/hi';
+import Image from 'next/image';
 
 // Define a type for nav items
 interface NavItem {
@@ -27,18 +28,21 @@ export const FloatingNav = ({
     },
     {
       name: "",
-      link: "/about",
-      icon: <HiUser className="w-5 h-5" />,
-    },
-    {
-      name: "",
-      link: "/contact",
-      icon: <HiMail className="w-5 h-5" />,
+      link: "/projects",
+      icon: <HiCode className="w-5 h-5" />,
     },
     {
       name: "",
       link: "/billing",
-      icon: <HiCreditCard className="w-5 h-5" />,
+      icon: (
+        <Image 
+          src="/usdc-logo.png"  // Adjust path to match your asset location
+          alt="USDC"
+          width={20}
+          height={20}
+          className="w-5 h-5"
+        />
+      ),
     },
   ];
 
