@@ -1,6 +1,5 @@
 import { AnimatedSection } from '../Components/Common/AnimatedSection';
 import { HeroParallax } from '../Components/Common/ui/hero-parallax';
-import Link from 'next/link';
 
 const products = [
   {
@@ -12,11 +11,42 @@ const products = [
   },
   // ... rest of the products array (copy from app/page.tsx)
   {
-    title: "Mumbai",
+    title: "To be added.",
     link: "https://gomoonbeam.com",
-    thumbnail: "/mumbai-night-1.jpg",
+    thumbnail: "/skyline-0.jpg",
     description: "Mumbai is a platform for creating and sharing AI-powered content.",
   },
+  {
+    title: "To be added..",
+    link: "https://gomoonbeam.com",
+    thumbnail: "/skyline-1.jpeg",
+    description: "Mumbai is a platform for creating and sharing AI-powered content.",
+  },
+  {
+    title: "To be added...",
+    link: "https://gomoonbeam.com",
+    thumbnail: "/skyline-2.jpg",
+    description: "Mumbai is a platform for creating and sharing AI-powered content.",
+  },
+  {
+    title: "To be added....",
+    link: "https://gomoonbeam.com",
+    thumbnail: "/skyline-3.jpg",
+    description: "Mumbai is a platform for creating and sharing AI-powered content.",
+  },
+  {
+    title: "To be added.....",
+    link: "https://gomoonbeam.com",
+    thumbnail: "/skyline-4.jpg",
+    description: "Mumbai is a platform for creating and sharing AI-powered content.",
+  },
+  {
+    title: "To be added......",
+    link: "https://gomoonbeam.com",
+    thumbnail: "/skyline-5.jpg",
+    description: "Mumbai is a platform for creating and sharing AI-powered content.",
+  },
+
 
 ];
 

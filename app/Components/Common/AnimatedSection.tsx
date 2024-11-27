@@ -56,7 +56,7 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children }) => {
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+  }, []);
 
   return (
     <motion.section animate={controls} initial={{ y: 0 }}>
