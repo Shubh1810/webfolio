@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import { TfiSoundcloud } from 'react-icons/tfi';
 import { FlipWords } from '../../Components/Common/ui/flip-words';
 import { Button } from '../Common/ui/button';
-import { TextHoverEffect } from '../Common/ui/text-hover-effect';
 import { useTheme } from 'next-themes';
 
 // Define a type for the Vanta effect
