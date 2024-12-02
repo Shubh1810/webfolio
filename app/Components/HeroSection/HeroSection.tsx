@@ -20,11 +20,12 @@ const HeroSection: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const { theme } = useTheme();
 
-  // Combine the mounting and Vanta effects into a single useEffect
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // Split into two separate effects
   useEffect(() => {
     setMounted(true);
+  }, []);
 
+  useEffect(() => {
     // Only proceed with Vanta setup if mounted
     if (!mounted) return;
 

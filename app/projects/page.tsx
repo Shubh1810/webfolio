@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { useTheme } from 'next-themes';
 import { AnimatedSection } from '../Components/Common/AnimatedSection';
 import { HeroParallax } from '../Components/Common/ui/hero-parallax';
 
@@ -54,7 +53,6 @@ const products = [
 ];
 
 export default function ProjectsPage() {
-  const { theme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
