@@ -109,7 +109,7 @@ const HeroSection: React.FC = () => {
         {/* Hero Content */}
         <div className="flex flex-col items-start justify-center w-full mt-8 md:mt-0">
           <motion.h1
-            className="bg-clip-text text-transparent text-left bg-gradient-to-br from-gray-900 via-gray-700 to-gray-800 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
+            className="bg-clip-text text-transparent text-left bg-gradient-to-br from-black via-gray-700 to-gray-800 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 

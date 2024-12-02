@@ -4,7 +4,8 @@ import { cn } from "../../../lib/utils";
 
 interface ButtonProps {
   text: string;
-  href: string;
+  href?: string;
+  onClick?: () => void;
   icon: React.ReactNode;
   className?: string;
 }
@@ -12,12 +13,14 @@ interface ButtonProps {
 export const Button = ({
   text,
   href,
+  onClick,
   icon,
   className,
 }: ButtonProps) => {
   return (
     <a 
       href={href}
+      onClick={onClick}
       className={cn(
         "relative inline-flex h-12 overflow-hidden rounded-full p-[1px]",
         "focus:outline-none focus:ring-2 focus:ring-slate-400",

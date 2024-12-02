@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   authors: [{ name: 'Shubh Sheth' }],
   openGraph: {
     title: 'Shubh Sheth | Portfolio',
-    description: 'Personal portfolio showcasing my work as an AI software developer',
-    url: 'https://shubhsheth.com',
-    siteName: 'Shubh Sheth Portfolio',
+    description: 'Personal website showcasing my work as an AI software developer',
+    url: 'https://shubhsheth.info',
+    siteName: 'Shubh Sheth',
     images: [
       {
-        url: '/profile.jpeg', // Add your Open Graph image
+        url: '/thumbnail-s.jpeg', // Add your Open Graph image
         width: 1200,
         height: 630,
       }
