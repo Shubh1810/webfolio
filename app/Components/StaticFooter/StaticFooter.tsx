@@ -61,10 +61,10 @@ const StaticFooter: React.FC = () => {
       py-10 
       mt-auto
       border-t 
-      border-white/10
+      border-black/10 dark:border-white/10
       bg-white/[0.02]
       backdrop-blur-md
-      text-gray-400
+      text-gray-600 dark:text-gray-400
       relative
       overflow-hidden
     ">
@@ -91,20 +91,20 @@ const StaticFooter: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {/* About Me */}
           <div>
-            <h3 className="text-white font-semibold mb-4">About Me</h3>
-            <p className="text-sm">
+            <h3 className="text-gray-900 dark:text-white font-semibold mb-4">About Me</h3>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
               I am a sophomore international student specializing in Artificial Intelligence and Machine Learning. Passionate about developing innovative solutions and eager to contribute to impactful projects.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-gray-900 dark:text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link 
                   href="/projects" 
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   Projects
                 </Link>
@@ -112,7 +112,7 @@ const StaticFooter: React.FC = () => {
               <li>
                 <Link 
                   href="/resume" 
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   Resume
                 </Link>
@@ -120,7 +120,7 @@ const StaticFooter: React.FC = () => {
               <li>
                 <Link 
                   href="/blog" 
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   Blog
                 </Link>
@@ -130,12 +130,12 @@ const StaticFooter: React.FC = () => {
 
           {/* Resources */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Resources</h3>
+            <h3 className="text-gray-900 dark:text-white font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
                 <Link 
                   href="/faq" 
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   FAQ
                 </Link>
@@ -143,7 +143,7 @@ const StaticFooter: React.FC = () => {
               <li>
                 <Link 
                   href="/privacy" 
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   Privacy Policy
                 </Link>
@@ -151,7 +151,7 @@ const StaticFooter: React.FC = () => {
               <li>
                 <Link 
                   href="/terms" 
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   Terms of Service
                 </Link>
@@ -161,14 +161,14 @@ const StaticFooter: React.FC = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
-            <p className="text-sm">
+            <h3 className="text-gray-900 dark:text-white font-semibold mb-4">Contact</h3>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
               Interested in collaborating or have a question? Feel free to reach out via email or connect with me on social media.
             </p>
             <p className="mt-2">
               <a
                 href="mailto:shethshubh@gmail.com"
-                className="hover:text-white transition-colors duration-200"
+                className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
               >
                 shethshubh@gmail.com
               </a>
@@ -216,7 +216,7 @@ const StaticFooter: React.FC = () => {
         {/* Bottom Section */}
         <div className="text-center">
           <p className="text-sm">
-            © {currentYear} <span className="text-white">Shubh Sheth</span>. All rights reserved.
+            © {currentYear} <span className="text-black dark:text-white">Shubh Sheth</span>. All rights reserved.
           </p>
         </div>
       </div>

@@ -13,8 +13,8 @@ const items = [
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 5 ? 
-          <FaStar key={i} className="text-violet-800/70" /> :
-          <FaRegStar key={i} className="text-violet-800/70" />
+          <FaStar key={i} className="text-red-500 dark:text-violet-800/70" /> :
+          <FaRegStar key={i} className="text-red-500 dark:text-violet-800/70" />
       ))}
     </div>,
   },
@@ -24,8 +24,8 @@ const items = [
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 4 ? 
-          <FaStar key={i} className="text-violet-800/70" /> :
-          <FaRegStar key={i} className="text-violet-800/70" />
+          <FaStar key={i} className="text-red-500 dark:text-violet-800/70" /> :
+          <FaRegStar key={i} className="text-red-500 dark:text-violet-800/70" />
       ))}
     </div>,
   },
@@ -35,8 +35,8 @@ const items = [
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 2 ? 
-          <FaStar key={i} className="text-violet-800/70" /> :
-          <FaRegStar key={i} className="text-violet-800/70" />
+          <FaStar key={i} className="text-red-500 dark:text-violet-800/70" /> :
+          <FaRegStar key={i} className="text-red-500 dark:text-violet-800/70" />
       ))}
     </div>,
   },
@@ -46,8 +46,8 @@ const items = [
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 2 ? 
-          <FaStar key={i} className="text-violet-800/70" /> :
-          <FaRegStar key={i} className="text-violet-800/70" />
+          <FaStar key={i} className="text-red-500 dark:text-violet-800/70" /> :
+          <FaRegStar key={i} className="text-red-500 dark:text-violet-800/70" />
       ))}
     </div>,
   },
@@ -57,8 +57,8 @@ const items = [
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 3 ? 
-          <FaStar key={i} className="text-violet-800/70" /> :
-          <FaRegStar key={i} className="text-violet-800/70" />
+          <FaStar key={i} className="text-red-500 dark:text-violet-800/70" /> :
+          <FaRegStar key={i} className="text-red-500 dark:text-violet-800/70" />
       ))}
     </div>,
   },
@@ -73,13 +73,15 @@ export default function HomePage() {
       </div>
 
       {/* Moving Cards Section */}
-      <div className="relative mt-20">
-        <InfiniteMovingCards
-          items={items}
-          direction="left"
-          speed="fast"
-          pauseOnHover={true}
-        />
+      <div className="relative mt-20 overflow-hidden w-screen">
+        <div className="max-w-[180rem] mx-auto px-8 md:px-12 lg:px-16">
+          <InfiniteMovingCards
+            items={items}
+            direction="left"
+            speed="fast"
+            pauseOnHover={true}
+          />
+        </div>
       </div>
 
       {/* TEST Content Section */}
