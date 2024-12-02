@@ -95,19 +95,13 @@ const HeroSection: React.FC = () => {
         {/* Inverted bottom blend - increased height and smoother transition */}
         <div className="absolute bottom-0 translate-y-full w-full h-32 bg-gradient-to-b from-white dark:from-black via-white/95 dark:via-black/95 to-transparent" />
 
-        {/* Tech Stack Text */}
-        <div className="absolute -bottom-14 left-8 z-[5]">
-          <TextHoverEffect
-            text="Tech Stack"
-            duration={0.4}
-          />
-        </div>
+
       </div>
       
       {/* Hero Content and Profile Picture Container */}
-      <div className="relative z-[2] h-full flex flex-col-reverse md:flex-row md:justify-between items-center p-8">
+      <div className="relative z-[2] h-full flex flex-col-reverse md:flex-row md:justify-between items-center p-8 max-w-[100rem] mx-auto">
         {/* Hero Content */}
-        <div className="flex flex-col items-start justify-center w-full mt-8 md:mt-0">
+        <div className="flex flex-col items-start justify-center w-full mt-8 md:mt-0 md:ml-8 lg:ml-16">
           <motion.h1
             className="bg-clip-text text-transparent text-left bg-gradient-to-br from-black via-gray-700 to-gray-800 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
             initial={{ opacity: 0, y: -50 }}
@@ -139,14 +133,14 @@ const HeroSection: React.FC = () => {
 
         {/* Profile Picture */}
         {profileImageSrc && (
-          <div className="mb-8 md:mb-0 md:mt-0 self-center md:self-center relative">
+          <div className="mb-8 md:mb-0 md:mt-0 self-center md:self-center relative md:mr-8 lg:mr-16">
             {/* Black shadow glow effect */}
             <div className="absolute -inset-2 rounded-full bg-black opacity-100 animate-fade-in blur-2xl" />
             
             {/* Indian flag gradient glow effect - only in dark mode */}
             <div 
               className="absolute -inset-2 rounded-full bg-gradient-to-b from-orange-400 via-slate-100/80 to-green-400 opacity-0 blur-2xl hidden dark:block transition-opacity duration-700 ease-in-out"
-              style={{ opacity: mounted ? 0.3 : 0 }}
+              style={{ opacity: mounted ? 0.25 : 0 }}
             />
             
             <Image

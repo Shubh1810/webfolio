@@ -37,7 +37,7 @@ export const FloatingNav = ({
     },
     {
       name: "",
-      link: "/beta",
+      link: "/none",
       icon: (
         <Image 
           src="/usdc-logo.png"  // Adjust path to match your asset location
@@ -58,6 +58,7 @@ export const FloatingNav = ({
           "dark:bg-black/85 bg-white/85 backdrop-blur-md",
           "z-50 px-8 py-2 items-center justify-between",
           "relative h-16",
+          "max-w-[95rem] mx-auto",
           className
         )}
       >

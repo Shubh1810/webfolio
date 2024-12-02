@@ -1,10 +1,27 @@
+"use client";
 // app/page.tsx
 import React from 'react';
 import HeroSection from './Components/HeroSection/HeroSection';
 import { AnimatedSection } from './Components/Common/AnimatedSection';
-import { TextHoverEffect } from './Components/Common/ui/text-hover-effect';
 import { InfiniteMovingCards } from './Components/Common/ui/infinite-moving-cards';
 import { FaStar, FaRegStar } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FocusCards } from './Components/Common/ui/focus-cards';
+
+const cards = [
+  {
+    title: "Penn State University",
+    src: "/psu.jpg",
+  },
+  {
+    title: "Foothill College",
+    src: "/foothillW.jpg",
+  },
+  {
+    title: "Cathedral Vidya School",
+    src: "/cvsl-4.jpg",
+  },
+]
 
 const items = [
   {
@@ -86,21 +103,21 @@ export default function HomePage() {
 
       {/* TEST Content Section */}
       <AnimatedSection>
-        <section id="about" className="mt-40 w-full px-4">
-          <div className="text-[clamp(6rem,20vw,25rem)] font-[169] italic mb-20">
-            <TextHoverEffect 
-              text="TEST" 
-              duration={0.4}
-            />
-          </div>
-        </section>
-        <section id="about" className="mt-40 w-full px-4">
-          <div className="text-[clamp(6rem,20vw,25rem)] font-[169] italic mb-20">
-            <TextHoverEffect 
-              text="PROJECT89" 
-              duration={0.4}
-            />
-          </div>
+        <div className="flex flex-col items-center justify-center max-w-[85rem] mx-auto w-full mt-20 md:mt-10 px-4 md:px-8 lg:px-16">
+          <motion.h1
+            className="bg-clip-text text-transparent text-center bg-gradient-to-br from-black via-gray-700 to-gray-800 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-5xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8,
+              ease: "easeOut"
+            }}
+          >
+            Education
+          </motion.h1>
+        </div>
+        <section id="about" className="mt-10 mb-40 w-full px-4">
+          <FocusCards cards={cards} />
         </section>
       </AnimatedSection>
 
