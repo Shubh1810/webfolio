@@ -65,10 +65,11 @@ const HeroSection: React.FC = () => {
       };
     };
 
+    // Cleanup function
     return () => {
       if (vantaEffect) vantaEffect.destroy();
     };
-  }, [theme, mounted]);
+  }, [mounted, theme]);
 
   // Profile Image Source
   const profileImageSrc = '/mainpicc.png'; // Update path as needed
