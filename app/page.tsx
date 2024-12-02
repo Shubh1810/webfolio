@@ -34,7 +34,7 @@ const items = [
     name: "R | R Shiny | ggplot2 | dplyr | tidyr | stringr | purrr | readr | lubridate | tidyverse",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
-        i < 3 ? 
+        i < 2 ? 
           <FaStar key={i} className="text-violet-800/70" /> :
           <FaRegStar key={i} className="text-violet-800/70" />
       ))}
@@ -45,7 +45,7 @@ const items = [
     name: "AWS | EC2 | S3 | Lambda | CloudFront | CloudWatch | CloudTrail | CloudFormation",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
-        i < 3 ? 
+        i < 2 ? 
           <FaStar key={i} className="text-violet-800/70" /> :
           <FaRegStar key={i} className="text-violet-800/70" />
       ))}

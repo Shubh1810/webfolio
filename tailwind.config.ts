@@ -1,4 +1,4 @@
-// tailwind.config.js
+// tailwind.config.ts
 const defaultTheme = require("tailwindcss/defaultTheme");
 const svgToDataUri = require("mini-svg-data-uri");
 
@@ -47,7 +47,10 @@ module.exports = {
           'linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff)',
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'grid': 'linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px)',
-        'dot-pattern': 'radial-gradient(circle, currentColor 1px, transparent 1px)',
+
+        // Define separate dot patterns for light and dark modes
+        'dot-light': 'radial-gradient(circle, #E5E5E5 1px, transparent 1px)',
+        'dot-dark': 'radial-gradient(circle, #262626 1px, transparent 1px)',
       },
       animation: {
         scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
@@ -99,29 +102,29 @@ module.exports = {
       },
     }
   },
-  plugins: [addVariablesForColors,
-    function ({ matchUtilities }: any) {
-    matchUtilities(
-      {
-        "bg-grid": (value: any) => ({
-          backgroundImage: `url("${svgToDataUri(
-            `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
-          )}")`,
-        }),
-        "bg-grid-small": (value: any) => ({
-          backgroundImage: `url("${svgToDataUri(
-            `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
-          )}")`,
-        }),
-        "bg-dot": (value: any) => ({
-          backgroundImage: `radial-gradient(circle, ${value} 1px, transparent 1px)`,
-          backgroundSize: '24px 24px',
-        }),
-      },
-      
-    );
-  },
-],
+  plugins: [
+    addVariablesForColors,
+    function ({ matchUtilities, theme }: { matchUtilities: any, theme: any }) {
+      matchUtilities(
+        {
+          "bg-grid": (value: string) => ({
+            backgroundImage: `url("${svgToDataUri(
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+            )}")`,
+          }),
+          "bg-grid-small": (value: string) => ({
+            backgroundImage: `url("${svgToDataUri(
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+            )}")`,
+          }),
+          // Removed "bg-dot" to prevent extra background layers
+        },
+        {
+          values: flattenColorPalette(theme("colors")),
+        }
+      );
+    },
+  ],
   future: {
     hoverOnlyWhenSupported: true,
     respectDefaultRingColorOpacity: true,
@@ -133,14 +136,15 @@ module.exports = {
     transform: true,
     animation: true,
   },
+  darkMode: 'class',
 };
 
-function addVariablesForColors({ addBase, theme }: any) {
+function addVariablesForColors({ addBase, theme }: { addBase: any, theme: any }) {
   let allColors = flattenColorPalette(theme('colors'));
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, value]) => [`--tw-${key}`, value])
   );
-  
+
   addBase({
     ':root': newVars,
   });

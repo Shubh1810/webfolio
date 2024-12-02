@@ -3,8 +3,9 @@ import React from "react";
 import { cn } from "../../../lib/utils";
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
-import { HiHome, HiCode } from 'react-icons/hi';
+import { HiHome, HiCode, HiSun, HiMoon } from 'react-icons/hi';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 // Define a type for nav items
 interface NavItem {
@@ -19,6 +20,7 @@ export const FloatingNav = ({
   className?: string;
 }) => {
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
 
   const navItems: NavItem[] = [
     {
@@ -33,7 +35,7 @@ export const FloatingNav = ({
     },
     {
       name: "",
-      link: "/billing",
+      link: "/beta",
       icon: (
         <Image 
           src="/usdc-logo.png"  // Adjust path to match your asset location
@@ -86,27 +88,45 @@ export const FloatingNav = ({
           </Link>
         ))}
       </div>
-      <button className={cn(
-        "text-xs md:text-sm",
-        "border font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full",
-        "transition-all duration-500",
-        "hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.7)]",
-        "after:absolute after:h-[150%] after:w-[150%] after:rounded-full after:-z-10 after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2",
-        "after:opacity-0 hover:after:opacity-100",
-        "after:transition-opacity after:duration-300",
-        "after:bg-gradient-to-r after:from-blue-500/30 after:via-violet-500/30 after:to-blue-500/30",
-        "after:blur-xl",
-        "hover:after:animate-pulse",
-        "before:absolute before:h-[120%] before:w-[120%] before:rounded-full before:-z-10 before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
-        "before:opacity-0 hover:before:opacity-100",
-        "before:transition-opacity before:duration-300",
-        "before:bg-gradient-to-r before:from-blue-400/40 before:via-violet-400/40 before:to-blue-400/40",
-        "before:blur-lg",
-        "before:hover:animate-pulse"
-      )}>
-        <span>Login</span>
-        <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-violet-500 to-transparent h-px animate-glow" />
-      </button>
+      <div className="flex items-center gap-4">
+        <button
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          className={cn(
+            "p-2 rounded-full",
+            "transition-all duration-500",
+            "hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.7)]",
+            "text-neutral-600 dark:text-neutral-50",
+            "hover:text-neutral-500 dark:hover:text-neutral-300"
+          )}
+        >
+          {theme === 'dark' ? (
+            <HiSun className="w-5 h-5" />
+          ) : (
+            <HiMoon className="w-5 h-5" />
+          )}
+        </button>
+        <button className={cn(
+          "text-xs md:text-sm",
+          "border font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full",
+          "transition-all duration-500",
+          "hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.7)]",
+          "after:absolute after:h-[150%] after:w-[150%] after:rounded-full after:-z-10 after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2",
+          "after:opacity-0 hover:after:opacity-100",
+          "after:transition-opacity after:duration-300",
+          "after:bg-gradient-to-r after:from-blue-500/30 after:via-violet-500/30 after:to-blue-500/30",
+          "after:blur-xl",
+          "hover:after:animate-pulse",
+          "before:absolute before:h-[120%] before:w-[120%] before:rounded-full before:-z-10 before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
+          "before:opacity-0 hover:before:opacity-100",
+          "before:transition-opacity before:duration-300",
+          "before:bg-gradient-to-r before:from-blue-400/40 before:via-violet-400/40 before:to-blue-400/40",
+          "before:blur-lg",
+          "before:hover:animate-pulse"
+        )}>
+          <span>Login</span>
+          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-violet-500 to-transparent h-px animate-glow" />
+        </button>
+      </div>
     </div>
   );
 };

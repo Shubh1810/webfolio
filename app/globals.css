@@ -13,17 +13,13 @@
   }
 }
 
-/* If you're using CSS variables, define them here */
+/* Light mode variables */
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --border: 214.3 31.8% 91.4%;
-  --yellow-500: #EAB308;
-  --red-500: #EF4444;
-  --blue-500: #3B82F6;
-  --cyan-500: #06B6D4;
-  --violet-500: #8B5CF6;
+  --dot-color: black;
+  --gradient-color: white;
 }
+
+/* Dark mode - no variables needed as they're hardcoded in the layout */
 
 html,
 body {
@@ -120,6 +116,8 @@ img {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --dot-color: white;
+    --gradient-color: black;
 
   }
 

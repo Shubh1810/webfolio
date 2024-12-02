@@ -7,6 +7,7 @@ import { TfiSoundcloud } from 'react-icons/tfi';
 import { FlipWords } from '../../Components/Common/ui/flip-words';
 import { Button } from '../Common/ui/button';
 import { TextHoverEffect } from '../Common/ui/text-hover-effect';
+import { useTheme } from 'next-themes';
 
 // Define a type for the Vanta effect
 type VantaEffect = {
@@ -16,8 +17,16 @@ type VantaEffect = {
 const HeroSection: React.FC = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
   const [vantaEffect, setVantaEffect] = useState<VantaEffect>(null);
+  const [mounted, setMounted] = useState(false);
+  const { theme } = useTheme();
 
+  // Combine the mounting and Vanta effects into a single useEffect
   useEffect(() => {
+    setMounted(true);
+
+    // Only proceed with Vanta setup if mounted
+    if (!mounted) return;
+
     // Load THREE.js first
     const loadThree = document.createElement('script');
     loadThree.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js';
@@ -33,30 +42,33 @@ const HeroSection: React.FC = () => {
 
       // Initialize Vanta effect after scripts are loaded
       loadVanta.onload = () => {
-        if (!vantaEffect) {
-          setVantaEffect(
-            // @ts-expect-error VANTA is loaded dynamically
-            VANTA.WAVES({
-              el: vantaRef.current,
-              mouseControls: true,
-              touchControls: true,
-              gyroControls: false,
-              minHeight: 200.0,
-              scale: 1.0,
-              scaleMobile: 1.0,
-              color: 0x10105,
-              shininess: 45.0,
-              waveHeight: 25.0,
-              zoom: 0.75
-            })
-          );
-        }
-        return () => {
-          if (vantaEffect) vantaEffect.destroy();
-        };
+        if (vantaEffect) vantaEffect.destroy();
+        
+        setVantaEffect(
+          // @ts-expect-error VANTA is loaded dynamically
+          VANTA.WAVES({
+            el: vantaRef.current,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.0,
+            scale: 1.0,
+            scaleMobile: 1.0,
+            color: theme === 'dark' ? 0x10105 : 0x959596,
+            shininess: 35.0,
+            waveHeight: 15.0,
+            zoom: 0.75,
+            waveSpeed: 0.5,
+            mouseEase: true,
+          })
+        );
       };
     };
-  }, [vantaEffect]);
+
+    return () => {
+      if (vantaEffect) vantaEffect.destroy();
+    };
+  }, [theme, mounted]);
 
   // Profile Image Source
   const profileImageSrc = '/mainpicc.png'; // Update path as needed
@@ -66,20 +78,22 @@ const HeroSection: React.FC = () => {
       {/* Vanta container */}
       <div 
         ref={vantaRef}
-        className="absolute left-0 top-0 w-full h-full z-0"
+        className="absolute left-0 top-0 w-full h-full z-0 opacity-100"
       />
 
       {/* Edge blending gradients */}
-      <div className="absolute left-0 top-0 w-full h-full z-[1]">
-        {/* Top blend */}
-        <div className="absolute -top-14 w-full h-40 bg-gradient-to-b from-black via-black/95 to-transparent" />
+      <div className="absolute inset-0 pointer-events-none z-[1]">
+        {/* Top blend - increased height and smoother transition */}
+        <div className="absolute -top-20 w-full h-52 bg-gradient-to-b from-white from-5% via-white/98 via-30% via-white/95 via-60% dark:from-black dark:via-black/98 dark:via-black/95 to-transparent" />
 
-        {/* Bottom blend - darker and more gradual */}
-        <div className="absolute -bottom-12 w-full h-60 bg-gradient-to-t from-black via-black/90 to-transparent" />
-        <div className="absolute bottom-0 w-full h-[20vh] bg-gradient-to-b from-black via-black/90 to-transparent translate-y-full" />
+        {/* Bottom blend - increased height and smoother transition */}
+        <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-white from-5% via-white/98 via-30% via-white/95 via-60% dark:from-black dark:via-black/98 dark:via-black/95 to-transparent" />
+
+        {/* Inverted bottom blend - increased height and smoother transition */}
+        <div className="absolute bottom-0 translate-y-full w-full h-32 bg-gradient-to-b from-white dark:from-black via-white/95 dark:via-black/95 to-transparent" />
 
         {/* Tech Stack Text */}
-            <div className="absolute -bottom-14 left-8 z-[5]">
+        <div className="absolute -bottom-14 left-8 z-[5]">
           <TextHoverEffect
             text="Tech Stack"
             duration={0.4}
@@ -92,7 +106,7 @@ const HeroSection: React.FC = () => {
         {/* Hero Content */}
         <div className="flex flex-col items-start justify-center w-full mt-8 md:mt-0">
           <motion.h1
-            className="bg-clip-text text-transparent text-left bg-gradient-to-br from-gray-200 via-gray-400 to-gray-600 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
+            className="bg-clip-text text-transparent text-left bg-gradient-to-br from-gray-900 via-gray-700 to-gray-800 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
@@ -126,8 +140,8 @@ const HeroSection: React.FC = () => {
             {/* Black shadow glow effect */}
             <div className="absolute -inset-2 rounded-full bg-black opacity-100 blur-2xl" />
             
-            {/* Indian flag gradient glow effect */}
-            <div className="absolute -inset-2 rounded-full bg-gradient-to-b from-orange-400 via-slate-100/80 to-green-400 opacity-40 blur-2xl" />
+            {/* Indian flag gradient glow effect - only in dark mode */}
+            <div className="absolute -inset-2 rounded-full bg-gradient-to-b from-orange-400 via-slate-100/80 to-green-400 opacity-30 blur-2xl hidden dark:block" />
             
             <Image
               src={profileImageSrc}

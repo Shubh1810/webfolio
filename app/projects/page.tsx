@@ -1,13 +1,16 @@
+'use client';
+
+import React from 'react';
+import { useTheme } from 'next-themes';
 import { AnimatedSection } from '../Components/Common/AnimatedSection';
 import { HeroParallax } from '../Components/Common/ui/hero-parallax';
 
 const products = [
   {
-    title: "Moonbeam",
-    link: "https://gomoonbeam.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
-    description: "Moonbeam is a platform for creating and sharing AI-powered content.",
+    title: "Personal Portfolio Website",
+    link: "https://shubhsheth.info",
+    thumbnail: "/webfolio-project.png",
+    description: "Created on Next.js, Tailwind CSS, and Framer Motion | Hosted on Vercel.",
   },
   // ... rest of the products array (copy from app/page.tsx)
   {
@@ -51,6 +54,16 @@ const products = [
 ];
 
 export default function ProjectsPage() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Don't render anything until mounted to prevent hydration mismatch
+  if (!mounted) return null;
+
   return (
     <AnimatedSection>
       <section className="min-h-screen">
