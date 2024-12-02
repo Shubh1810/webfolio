@@ -21,6 +21,7 @@ const HeroSection: React.FC = () => {
   const { theme } = useTheme();
 
   // Combine the mounting and Vanta effects into a single useEffect
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     setMounted(true);
 
@@ -139,17 +140,25 @@ const HeroSection: React.FC = () => {
         {profileImageSrc && (
           <div className="mb-8 md:mb-0 md:mt-0 self-center md:self-center relative">
             {/* Black shadow glow effect */}
-            <div className="absolute -inset-2 rounded-full bg-black opacity-100 blur-2xl" />
+            <div className="absolute -inset-2 rounded-full bg-black opacity-100 animate-fade-in blur-2xl" />
             
             {/* Indian flag gradient glow effect - only in dark mode */}
-            <div className="absolute -inset-2 rounded-full bg-gradient-to-b from-orange-400 via-slate-100/80 to-green-400 opacity-30 blur-2xl hidden dark:block" />
+            <div 
+              className="absolute -inset-2 rounded-full bg-gradient-to-b from-orange-400 via-slate-100/80 to-green-400 opacity-0 blur-2xl hidden dark:block transition-opacity duration-700 ease-in-out"
+              style={{ opacity: mounted ? 0.3 : 0 }}
+            />
             
             <Image
               src={profileImageSrc}
               alt="Profile Picture"
               width={150}
               height={150}
-              className="relative object-cover md:w-[200px] md:h-[200px]"
+              priority={true}
+              className="relative object-cover md:w-[200px] md:h-[200px] transition-opacity duration-300"
+              onLoadingComplete={(img) => {
+                img.classList.remove('opacity-0');
+                img.classList.add('opacity-100');
+              }}
             />
           </div>
         )}
