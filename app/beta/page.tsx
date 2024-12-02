@@ -4,10 +4,8 @@ import { AnimatedSection } from '../Components/Common/AnimatedSection';
 import { SearchBar } from '../Components/Common/ui/SearchBar';
 import { Button } from '../Components/Common/ui/button';
 import React from "react";  
-import { IconBrandGithub, IconX } from '@tabler/icons-react';
-import { IconBrandLine } from '@tabler/icons-react';
+import { IconBrandGithub } from '@tabler/icons-react';
 import { SignupFormDemo } from '../Components/Common/ui/SignupForm';
-import { cn } from '../lib/utils';
 import { useState } from "react";
 
 export default function BetaPage() {
