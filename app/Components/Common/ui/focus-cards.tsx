@@ -3,11 +3,30 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { cn } from "../../../lib/utils";
 
+type Logo = string | {
+  dark: string;
+  light: string;
+};
+
 type Card = {
   title: string;
   src: string;
   description: string;
-  logo: string;
+  logo: Logo;
+};
+
+// Function to determine the current theme
+const useDarkMode = (): boolean => {
+  // Implement your logic to determine if dark mode is active
+  return false; // Placeholder
+};
+
+// Function to get the correct logo based on the theme
+const getLogo = (logo: Logo, isDarkMode: boolean): string => {
+  if (typeof logo === 'string') {
+    return logo;
+  }
+  return isDarkMode ? logo.dark : logo.light;
 };
 
 export const Card = React.memo(
@@ -71,7 +90,7 @@ export const Card = React.memo(
         {/* Logo */}
         <div className="absolute -top-12 z-20 w-32 h-24 flex items-center justify-center">
           <Image
-            src={card.logo}
+            src={getLogo(card.logo, useDarkMode())}
             alt={`${card.title} logo`}
             width={logoSize.width}
             height={logoSize.height}
@@ -145,13 +164,14 @@ export function FocusCards({ cards }: { cards: Card[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto md:px-8 w-full">
       {cards.map((card, index) => (
-        <Card
-          key={card.title}
-          card={card}
-          index={index}
-          hovered={hovered}
-          setHovered={setHovered}
-        />
+        <div key={card.title} className="mb-12 md:mb-0">
+          <Card
+            card={card}
+            index={index}
+            hovered={hovered}
+            setHovered={setHovered}
+          />
+        </div>
       ))}
     </div>
   );

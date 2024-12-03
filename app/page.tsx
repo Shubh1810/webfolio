@@ -13,7 +13,10 @@ const cards = [
     title: "Penn State University",
     description: "B.S. in Computer Science and Engineering",
     src: "/psu.jpg",
-    logo: "/psu.png",
+    logo: {
+      dark: "/psu-white.png",
+      light: "/psu.png",
+    },
   },
   {
     title: "Foothill College",
@@ -76,7 +79,7 @@ const items = [
   },
   {
     quote: "Machine Learning",
-    name: "PyTorch | TensorFlow | Scikit-Learn | Matplotlib | Seaborn | SciPy | OpenCV | PyTorch Lightning | PyTorch Geometric | PyTorch Transformers | PyTorch Text | PyTorch Vision | PyTorch Quantization | PyTorch Quantization Aware Training",
+    name: "PyTorch | TensorFlow | TensorFlow.js | TensorFlow Lite | Scikit-Learn | Matplotlib | Keras | SciPy | OpenCV | PyTorch Lightning | PyTorch Geometric | PyTorch Transformers | PyTorch Text | PyTorch Vision | PyTorch Quantization | PyTorch Quantization Aware Training",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 3 ? 
@@ -107,25 +110,41 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* TEST Content Section */}
-      <AnimatedSection>
-        <div className="flex flex-col items-center justify-center max-w-[85rem] mx-auto w-full mt-20 md:mt-10 px-4 md:px-8 lg:px-16">
-          <motion.h1
-            className="bg-clip-text text-transparent text-center bg-gradient-to-br from-black via-gray-700 to-gray-800 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-5xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.8,
-              ease: "easeOut"
-            }}
-          >
-            Education
-          </motion.h1>
+      {/* Education Section */}
+      <div className="flex flex-col items-center justify-center max-w-[85rem] mx-auto w-full mt-32 md:mt-24 mb-32 md:mb-24 px-4 md:px-8 lg:px-16 bg-white dark:bg-black">
+        <div className="flex items-center w-full max-w-4xl relative z-10">
+          <motion.div 
+            className="h-[1px] w-full bg-gradient-to-r from-transparent via-gray-400 to-transparent opacity-100"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          />
+          <div className="px-8">
+            <motion.h1
+              className="italic bg-clip-text text-transparent text-center bg-gradient-to-br from-gray-600 via-gray-500 to-gray-400 dark:from-gray-400 dark:via-gray-500 dark:to-gray-600 text-2xl md:text-4xl lg:text-5xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight whitespace-nowrap"
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.8,
+                ease: "easeOut"
+              }}
+            >
+              Education
+            </motion.h1>
+          </div>
+          <motion.div 
+            className="h-[1px] w-full bg-gradient-to-r from-transparent via-gray-400 to-transparent opacity-100"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          />
         </div>
-        <section id="about" className="mt-10 mb-40 w-full px-4">
-          <FocusCards cards={cards} />
-        </section>
-      </AnimatedSection>
+      </div>
+      <section id="about" className="mt-16 mb-40 w-full px-4 md:px-8 lg:px-16">
+        <FocusCards cards={cards} />
+      </section>
 
     </div>
   );

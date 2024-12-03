@@ -33,7 +33,7 @@ export const Button = ({
       <span className={cn(
         "absolute inset-[-1000%]",
         "animate-[spin_2s_linear_infinite]",
-        "bg-[conic-gradient(from_90deg_at_50%_50%,#ef4444_0%,#f59e0b_50%,#22c55e_100%)]",
+        "bg-[conic-gradient(from_90deg_at_50%_50%,#ef4444_0%,#f97316_25%,#f59e0b_50%,#22c55e_75%,#f59e0b_100%)]",
         "dark:bg-[conic-gradient(from_90deg_at_50%_50%,#818cf8_0%,#6366f1_50%,#a855f7_100%)]"
       )} />
       <span className={cn(

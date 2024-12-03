@@ -7,6 +7,7 @@ import React from "react";
 import { IconBrandGithub } from '@tabler/icons-react';
 import { SignupFormDemo } from '../Components/Common/ui/SignupForm';
 import { useState } from "react";
+import { motion } from 'framer-motion';
 
 export default function BetaPage() {
   const [showSignup, setShowSignup] = useState(false);
@@ -15,8 +16,19 @@ export default function BetaPage() {
   return (
     <AnimatedSection>
       <div className="flex flex-col items-center justify-center min-h-screen p-4">
+      <motion.h1
+            className="bg-clip-text text-transparent text-left bg-gradient-to-br from-black via-gray-700 to-gray-800 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8,
+              ease: "easeOut"
+            }}
+          >
+            Anythin.ai
+          </motion.h1>
         <SearchBar 
-          placeholders={[" 🚧  ❌", " 🛠️  ❌", " 🔍  ❌", "🚀  ❌", "AI  ❌"]} 
+          placeholders={[" Messi is the G.O.A.T   🚧  ❌", " under construction 🛠️❌", " Search    🔍❌", "it's litt!!!!🚀❌", "AI  ❌"]} 
           onChange={() => {}} 
           onSubmit={() => {}} 
         />
