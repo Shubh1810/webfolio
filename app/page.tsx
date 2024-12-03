@@ -7,28 +7,25 @@ import { InfiniteMovingCards } from './Components/Common/ui/infinite-moving-card
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { FocusCards } from './Components/Common/ui/focus-cards';
-import psuLogo from '../public/psu-logo.png';
-import foothillLogo from '../public/foothill-logo.png';
-import cvslLogo from '../public/cvsl-logo.png';
 
 const cards = [
   {
     title: "Penn State University",
     description: "B.S. in Computer Science and Engineering",
     src: "/psu.jpg",
-    logo: psuLogo.src,
+    logo: "/psu-logo.png",
   },
   {
     title: "Foothill College",
     description: "Computer Science",
     src: "/foothillW.jpg",
-    logo: foothillLogo.src,
+    logo: "/foothill-logo.png",
   },
   {
     title: "Cathedral Vidya School",
     description: "IB Diploma Programme",
     src: "/cvsl-4.jpg",
-    logo: cvslLogo.src,
+    logo: "/cvsl-logo.png",
   },
 ]
 
