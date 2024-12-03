@@ -19,13 +19,13 @@ const cards = [
     title: "Foothill College",
     description: "Computer Science",
     src: "/foothillW.jpg",
-    logo: "/foothill-logo.png",
+    logo: "/foothill.png",
   },
   {
     title: "Cathedral Vidya School",
     description: "IB Diploma Programme",
     src: "/cvsl-4.jpg",
-    logo: "/cvsl-logo.png",
+    logo: "/cvsl.png",
   },
 ]
 
