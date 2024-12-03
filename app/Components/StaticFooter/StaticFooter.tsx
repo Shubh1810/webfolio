@@ -177,7 +177,7 @@ const StaticFooter: React.FC = () => {
         </div>
 
         {/* Social Icons */}
-        <div className="flex justify-center flex-wrap gap-6 mb-8">
+        <div className="flex justify-center flex-wrap gap-3 md:gap-6 mb-8 px-2">
           {socialLinks.map((link) => (
             <a
               key={link.label}
@@ -185,7 +185,7 @@ const StaticFooter: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.label}
-              className="group relative w-8 h-8"
+              className="group relative w-6 h-6 md:w-8 md:h-8"
               style={{ '--glow-color': link.glowColor } as React.CSSProperties}
             >
               <div
@@ -199,13 +199,14 @@ const StaticFooter: React.FC = () => {
                 <Image
                   src={link.sideIcon}
                   alt={link.label}
-                  width={32}
-                  height={32}
+                  width={24}
+                  height={24}
                   className="
                     opacity-70
                     group-hover:opacity-100
                     transition-opacity duration-300 ease-out
                     group-hover:drop-shadow-[0_0_6px_var(--glow-color)]
+                    md:w-8 md:h-8
                   "
                 />
               </div>
