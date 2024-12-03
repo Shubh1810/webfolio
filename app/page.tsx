@@ -13,7 +13,7 @@ const cards = [
     title: "Penn State University",
     description: "B.S. in Computer Science and Engineering",
     src: "/psu.jpg",
-    logo: "/psu-logo.png",
+    logo: "/psu.png",
   },
   {
     title: "Foothill College",
