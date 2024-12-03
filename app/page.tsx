@@ -2,11 +2,11 @@
 // app/page.tsx
 import React from 'react';
 import HeroSection from './Components/HeroSection/HeroSection';
-import { AnimatedSection } from './Components/Common/AnimatedSection';
 import { InfiniteMovingCards } from './Components/Common/ui/infinite-moving-cards';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { FocusCards } from './Components/Common/ui/focus-cards';
+
 
 const cards = [
   {
