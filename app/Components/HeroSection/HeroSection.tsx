@@ -148,8 +148,9 @@ const HeroSection: React.FC = () => {
               width={150}
               height={150}
               priority={true}
-              className="relative object-cover md:w-[200px] md:h-[200px] transition-opacity duration-300"
-              onLoadingComplete={(img) => {
+              className="relative object-cover md:w-[200px] md:h-[200px] transition-all duration-300"
+              onLoad={(event) => {
+                const img = event.target as HTMLImageElement;
                 img.classList.remove('opacity-0');
                 img.classList.add('opacity-100');
               }}
