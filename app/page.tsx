@@ -32,7 +32,7 @@ const cards = [
 const items = [
   {
     quote: "Python",
-    name: "Numpy | Pandas | Scikit-Learn | PyTorch | TensorFlow | FastAPI | Flask | MySQL | Requests | Matplotlib | Object-Oriented Programming | Design Patterns | Deep Learning | Data Structures & Algorithms | RESTful APIs | Docker | Kubernetes | Git | CI/CD Pipelines",
+    name: "Numpy | Pandas | Scikit-Learn | PyTorch | FastAPI | Flask | MySQL | Requests | Matplotlib | Object-Oriented Programming | Design Patterns | Deep Learning | Data Structures & Algorithms | RESTful APIs | CI/CD Pipelines",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 5 ? 
@@ -43,7 +43,7 @@ const items = [
   },
   {
     quote: "JavaScript",
-    name: "React.js | Next.js | Node.js | MongoDB",
+    name: "React.js | React Hooks | Next.js | Node.js | MongoDB",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 4 ? 
@@ -53,11 +53,11 @@ const items = [
     </div>,
   },
   {
-    quote: "R",
-    name: "R | R Shiny | ggplot2 | dplyr | tidyr | stringr | purrr | readr | lubridate | tidyverse",
+    quote: "Developer Tools",
+    name: "Git | GitHub | VSCode | Replit | Docker | Kubernetes | Vercel",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
-        i < 2 ? 
+        i < 5 ? 
           <FaStar key={i} className="text-red-500 dark:text-violet-800/70" /> :
           <FaRegStar key={i} className="text-red-500 dark:text-violet-800/70" />
       ))}
@@ -75,8 +75,8 @@ const items = [
     </div>,
   },
   {
-    quote: "Docker",
-    name: "Docker | Docker Compose | Docker Swarm | Docker Machine | Docker Hub",
+    quote: "Machine Learning",
+    name: "PyTorch | TensorFlow | Scikit-Learn | Matplotlib | Seaborn | SciPy | OpenCV | PyTorch Lightning | PyTorch Geometric | PyTorch Transformers | PyTorch Text | PyTorch Vision | PyTorch Quantization | PyTorch Quantization Aware Training",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 3 ? 

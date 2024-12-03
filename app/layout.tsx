@@ -7,12 +7,12 @@ import { ThemeProvider } from './providers/ThemeProvider'
 import { cn } from "./lib/utils";
 
 export const metadata: Metadata = {
-  title: 'Shubh Sheth | Portfolio',
-  description: 'Personal portfolio showcasing my work as an AI software developer',
+  title: 'Shubh Sheth',
+  description: 'Personal website showcasing my work as an AI software developer',
   keywords: ['Shubh Sheth', 'Shubh', 'Sheth', 'developer', 'software engineer', 'web development', 'AI developer', 'AI engineer', 'Machine Learning Engineer', 'prompt engineering', 'LLM', 'Generative AI', 'Generative AI Engineer', 'Generative AI Developer',],
   authors: [{ name: 'Shubh Sheth' }],
   openGraph: {
-    title: 'Shubh Sheth | Portfolio',
+    title: 'Shubh Sheth',
     description: 'Personal website showcasing my work as an AI software developer',
     url: 'https://shubhsheth.info',
     siteName: 'Shubh Sheth',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shubh Sheth | Portfolio',
-    description: 'Personal portfolio showcasing my work as an AI software developer',
+    title: 'Shubh Sheth',
+    description: 'Personal website showcasing my work as an AI software developer',
     images: ['/og-image.png'],
   },
   robots: {
