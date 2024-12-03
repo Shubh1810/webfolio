@@ -11,15 +11,21 @@ import { FocusCards } from './Components/Common/ui/focus-cards';
 const cards = [
   {
     title: "Penn State University",
+    description: "B.S. in Computer Science and Engineering",
     src: "/psu.jpg",
+    logo: "/psu-logo.png",
   },
   {
     title: "Foothill College",
+    description: "Computer Science",
     src: "/foothillW.jpg",
+    logo: "/foothill-logo.png",
   },
   {
     title: "Cathedral Vidya School",
+    description: "IB Diploma Programme",
     src: "/cvsl-4.jpg",
+    logo: "/cvsl-logo.png",
   },
 ]
 

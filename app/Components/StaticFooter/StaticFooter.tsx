@@ -93,7 +93,7 @@ const StaticFooter: React.FC = () => {
           <div>
             <h3 className="text-gray-900 dark:text-white font-semibold mb-4">About Me</h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              I am a sophomore international student specializing in Artificial Intelligence and Machine Learning. Passionate about developing innovative solutions and eager to contribute to impactful projects.
+              I am a sophomore international student based in Silicon Valley specializing in Artificial Intelligence and Machine Learning. Passionate about developing innovative solutions and eager to contribute to impactful projects.
             </p>
           </div>
 
