@@ -140,22 +140,6 @@ const StaticFooter: React.FC = () => {
                   FAQ
                 </Link>
               </li>
-              <li>
-                <Link 
-                  href="/privacy" 
-                  className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/terms" 
-                  className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-                >
-                  Terms of Service
-                </Link>
-              </li>
             </ul>
           </div>
 
