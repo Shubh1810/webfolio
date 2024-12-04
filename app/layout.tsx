@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{
               backgroundImage: `radial-gradient(circle at center, white 1px, transparent 1px)`,
               backgroundSize: '24px 24px',
-              opacity: 0.15
+              opacity: 0.25
             }}
           />
           <div 
@@ -66,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{
               backgroundImage: `radial-gradient(circle at center, black 1px, transparent 1px)`,
               backgroundSize: '24px 24px',
-              opacity: 0.15
+              opacity: 0.25
             }}
           />
           <div 

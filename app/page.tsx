@@ -20,7 +20,7 @@ const cards = [
   },
   {
     title: "Foothill College",
-    description: "Computer Science",
+    description: "A.S.T in Computer Science",
     src: "/foothillW.jpg",
     logo: "/foothill.png",
   },
@@ -35,7 +35,7 @@ const cards = [
 const items = [
   {
     quote: "Python",
-    name: "Numpy | Pandas | Scikit-Learn | PyTorch | FastAPI | Flask | MySQL | Requests | Matplotlib | Object-Oriented Programming | Design Patterns | Deep Learning | Data Structures & Algorithms | RESTful APIs | CI/CD Pipelines",
+    name: "Numpy | Pandas | Scikit-Learn | PyTorch | FastAPI | Flask | MySQL | Requests | Matplotlib | Object-Oriented Programming | Design Patterns | Deep Learning | Data Structures & Algorithms | RESTful APIs | API Development",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 5 ? 
@@ -57,7 +57,7 @@ const items = [
   },
   {
     quote: "Developer Tools",
-    name: "Git | GitHub | VSCode | Replit | Docker | Kubernetes | Vercel",
+    name: "Git | GitHub | VSCode | Replit | Vercel",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 5 ? 
@@ -67,11 +67,11 @@ const items = [
     </div>,
   },
   {
-    quote: "AWS",
-    name: "AWS | EC2 | S3 | Lambda | CloudFront | CloudWatch | CloudTrail | CloudFormation",
+    quote: "Cloud",
+    name: "AWS | EC2 | S3 | Lambda | Google Cloud | Docker | Kubernetes",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
-        i < 2 ? 
+        i < 3 ? 
           <FaStar key={i} className="text-red-500 dark:text-violet-800/70" /> :
           <FaRegStar key={i} className="text-red-500 dark:text-violet-800/70" />
       ))}
@@ -104,11 +104,12 @@ export default function HomePage() {
           <InfiniteMovingCards
             items={items}
             direction="left"
-            speed="fast"
+            speed="normal"
             pauseOnHover={true}
           />
         </div>
       </div>
+      ``
 
       {/* Education Section */}
       <div className="flex flex-col items-center justify-center max-w-[85rem] mx-auto w-full mt-32 md:mt-24 mb-32 md:mb-24 px-4 md:px-8 lg:px-16 bg-white dark:bg-black">

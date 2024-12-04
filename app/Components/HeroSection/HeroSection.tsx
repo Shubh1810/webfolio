@@ -115,7 +115,7 @@ const HeroSection: React.FC = () => {
 
           <div className="mt-4 text-base md:text-xl font-mono">
             <FlipWords 
-              words={["AI | ML Developer", "Web3 | Crypto Enthusiast", "Python | R Developer", "Autonomous Systems Developer", "System Architect"]}
+              words={["AI | ML Developer", "Web3 | Crypto Enthusiast", "Python Developer", "Autonomous Systems Developer", "Full Stack Developer", "Data Analyst", "Systems Architect"]}
               duration={2000}
               className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-500 font-mono"
             />

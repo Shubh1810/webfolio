@@ -81,72 +81,22 @@ const StaticFooter: React.FC = () => {
       " />
 
       <div className="
-        max-w-6xl 
+        max-w-2xl 
         mx-auto 
         px-4
         relative
         z-10
+        flex
+        flex-col
+        items-center
+        text-center
       ">
         {/* Top Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          {/* About Me */}
-          <div>
-            <h3 className="text-gray-900 dark:text-white font-semibold mb-4">About Me</h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
-              I am a sophomore international student based in Silicon Valley specializing in Artificial Intelligence and Machine Learning. Passionate about developing innovative solutions and eager to contribute to impactful projects.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-gray-900 dark:text-white font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link 
-                  href="/projects" 
-                  className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/resume" 
-                  className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-                >
-                  Resume
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/blog" 
-                  className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-                >
-                  Blog
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="text-gray-900 dark:text-white font-semibold mb-4">Resources</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link 
-                  href="/faq" 
-                  className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-                >
-                  FAQ
-                </Link>
-              </li>
-            </ul>
-          </div>
-
+        <div className="w-full mb-12">
           {/* Contact */}
-          <div>
+          <div className="text-center">
             <h3 className="text-gray-900 dark:text-white font-semibold mb-4">Contact</h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
+            <p className="text-gray-600 dark:text-gray-400 text-sm max-w-sm mx-auto">
               Interested in collaborating or have a question? Feel free to reach out via email or connect with me on social media.
             </p>
             <p className="mt-2">
@@ -201,7 +151,7 @@ const StaticFooter: React.FC = () => {
         {/* Bottom Section */}
         <div className="text-center">
           <p className="text-sm">
-            © {currentYear} <span className="text-black dark:text-white">Shubh Sheth</span>. All rights reserved.
+            © <span className="text-black dark:text-white">Shubh Sheth</span> {currentYear}. 
           </p>
         </div>
       </div>

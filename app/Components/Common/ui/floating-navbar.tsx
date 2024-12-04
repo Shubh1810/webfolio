@@ -69,20 +69,20 @@ export const FloatingNav = ({
               href={navItem.link}
               className={cn(
                 "relative dark:text-neutral-50 items-center flex space-x-2 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500",
-                pathname === navItem.link && "text-violet-500 dark:text-violet-400",
+                pathname === navItem.link && "text-red-500 dark:text-violet-400",
                 "text-sm md:text-base",
                 "transition-all duration-500",
-                "hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.7)]",
+                "hover:drop-shadow-[0_0_15px_rgba(239,68,68,0.7)] dark:hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.7)]",
                 "after:absolute after:h-[150%] after:w-[150%] after:rounded-full after:-z-10",
                 "after:opacity-0 hover:after:opacity-100",
                 "after:transition-opacity after:duration-300",
-                "after:bg-gradient-to-r after:from-blue-500/30 after:via-violet-500/30 after:to-blue-500/30",
+                "after:bg-gradient-to-r after:from-red-500/30 after:via-red-500/30 after:to-red-500/30 dark:after:from-blue-500/30 dark:after:via-violet-500/30 dark:after:to-blue-500/30",
                 "after:blur-xl",
                 "hover:after:animate-pulse",
                 "before:absolute before:h-[120%] before:w-[120%] before:rounded-full before:-z-10",
                 "before:opacity-0 hover:before:opacity-100",
                 "before:transition-opacity before:duration-300",
-                "before:bg-gradient-to-r before:from-blue-400/40 before:via-violet-400/40 before:to-blue-400/40",
+                "before:bg-gradient-to-r before:from-red-400/40 before:via-red-400/40 before:to-red-400/40 dark:before:from-blue-400/40 dark:before:via-violet-400/40 dark:before:to-blue-400/40",
                 "before:blur-lg",
                 "before:hover:animate-pulse"
               )}
