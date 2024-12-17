@@ -144,26 +144,27 @@ export default function HomePage() {
             </motion.h1>
 
             {/* Sparkles Container */}
-            <div className="w-[40rem] h-20 relative">
+            <div className="flex justify-center w-full">
+              <div className="w-[40rem] h-20 relative">
+                {/* Theme-responsive gradients */}
+                <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-yellow-500 dark:via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+                <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-orange-500 dark:via-indigo-500 to-transparent h-px w-3/4" />
+                <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-red-500 dark:via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+                <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-red-500 dark:via-sky-500 to-transparent h-px w-1/4" />
 
-              {/* Core component */}
-              <SparklesCore
-                background="transparent"
-                minSize={0.4}
-                maxSize={1}
-                particleDensity={1200}
-                className="w-full h-full dark:invert"
-                particleColor="rgba(0, 0, 0, 0.7)"
-              />
+                {/* Core component */}
+                <SparklesCore
+                  background="transparent"
+                  minSize={0.4}
+                  maxSize={1}
+                  particleDensity={1200}
+                  className="w-full h-full dark:invert"
+                  particleColor="rgba(0, 0, 0, 0.7)"
+                />
 
-              {/* Theme-responsive gradients */}
-              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-yellow-500 dark:via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-orange-500 dark:via-indigo-500 to-transparent h-px w-3/4" />
-              <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-red-500 dark:via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-              <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-red-500 dark:via-sky-500 to-transparent h-px w-1/4" />
-
-              {/* Radial Gradient */}
-              <div className="absolute inset-0 w-full h-full bg-white dark:bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+                {/* Radial Gradient */}
+                <div className="absolute inset-0 w-full h-full bg-white dark:bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+              </div>
             </div>
           </div>
         </motion.div>
