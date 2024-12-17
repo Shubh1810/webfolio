@@ -50,6 +50,8 @@ export const Card = React.memo(
           return "bg-red-950/80";
         case "Cathedral Vidya School":
           return "bg-violet-950/80";
+        case "CP Goenka International School":
+          return "bg-green-950/80";
         default:
           return "bg-black/80";
       }
@@ -64,6 +66,8 @@ export const Card = React.memo(
           return "shadow-[0_20px_50px_rgba(220,_38,_38,_0.7)] hover:shadow-[0_30px_60px_rgba(220,_38,_38,_0.5)]";
         case "Cathedral Vidya School":
           return "shadow-[0_20px_50px_rgba(139,_92,_246,_0.7)] hover:shadow-[0_30px_60px_rgba(139,_92,_246,_0.5)]";
+        case "CP Goenka International School":
+          return "shadow-[0_20px_50px_rgba(34,_197,_94,_0.7)] hover:shadow-[0_30px_60px_rgba(34,_197,_94,_0.5)]";
         default:
           return "shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] hover:shadow-[0_30px_60px_rgba(8,_112,_184,_0.5)]";
       }
@@ -164,7 +168,14 @@ export function FocusCards({ cards }: { cards: Card[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto md:px-8 w-full">
       {cards.map((card, index) => (
-        <div key={card.title} className="mb-12 md:mb-0">
+        <div 
+          key={card.title} 
+          className={cn(
+            "mb-12 md:mb-0",
+            // Center align the 4th card (index 3) by spanning the middle column
+            index === 3 && "md:col-start-2 md:col-span-1"
+          )}
+        >
           <Card
             card={card}
             index={index}

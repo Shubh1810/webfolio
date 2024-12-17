@@ -6,8 +6,8 @@ import { InfiniteMovingCards } from './Components/Common/ui/infinite-moving-card
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { FocusCards } from './Components/Common/ui/focus-cards';
-
-
+import { useScreenSize } from './hooks/useScreenSize';
+import { SparklesCore } from './Components/Common/ui/sparkles';
 const cards = [
   {
     title: "Penn State University",
@@ -29,6 +29,12 @@ const cards = [
     description: "IB Diploma Programme",
     src: "/cvsl-4.jpg",
     logo: "/cvsl.png",
+  },
+  {
+    title: "CP Goenka International School",
+    description: "High School Diploma (IGCSE)",
+    src: "/cpgis.jpg",
+    logo: "/cpgis-logo.png",
   },
 ]
 
@@ -90,7 +96,11 @@ const items = [
   },
 ];
 
+
+
 export default function HomePage() {
+  const isMobile = useScreenSize();
+
   return (
     <div className="relative w-full">
       {/* Hero Section with Vanta */}
@@ -102,46 +112,61 @@ export default function HomePage() {
       <div className="relative mt-20 overflow-hidden w-screen">
         <div className="max-w-[180rem] mx-auto px-8 md:px-12 lg:px-16">
           <InfiniteMovingCards
+            key={isMobile ? 'fast-mode' : 'normal-mode'}
             items={items}
             direction="left"
-            speed="normal"
+            speed={isMobile ? "fast" : "normal"}
             pauseOnHover={true}
           />
         </div>
       </div>
-      ``
 
       {/* Education Section */}
-      <div className="flex flex-col items-center justify-center max-w-[85rem] mx-auto w-full mt-32 md:mt-24 mb-32 md:mb-24 px-4 md:px-8 lg:px-16 bg-white dark:bg-black">
-        <div className="flex items-center w-full max-w-4xl relative z-10">
-          <motion.div 
-            className="h-[1px] w-full bg-gradient-to-r from-transparent via-gray-400 to-transparent opacity-100"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-          />
-          <div className="px-8">
+      <div className="flex flex-col items-center justify-center max-w-[85rem] mx-auto w-full mt-32 md:mt-24 mb-32 md:mb-24 px-4 md:px-8 lg:px-16">
+        <motion.div 
+          className="relative flex items-center w-full max-w-4xl"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Heading Container */}
+          <div className="relative px-8 py-4 w-full">
+            {/* Heading Text */}
             <motion.h1
-              className="italic bg-clip-text text-transparent text-center bg-gradient-to-br from-gray-600 via-gray-500 to-gray-400 dark:from-gray-400 dark:via-gray-500 dark:to-gray-600 text-2xl md:text-4xl lg:text-5xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight whitespace-nowrap"
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.8,
-                ease: "easeOut"
-              }}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-4 text-center"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
               Education
             </motion.h1>
+
+            {/* Sparkles Container */}
+            <div className="w-[40rem] h-20 relative">
+
+              {/* Core component */}
+              <SparklesCore
+                background="transparent"
+                minSize={0.4}
+                maxSize={1}
+                particleDensity={1200}
+                className="w-full h-full dark:invert"
+                particleColor="rgba(0, 0, 0, 0.7)"
+              />
+
+              {/* Theme-responsive gradients */}
+              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-yellow-500 dark:via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-orange-500 dark:via-indigo-500 to-transparent h-px w-3/4" />
+              <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-red-500 dark:via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+              <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-red-500 dark:via-sky-500 to-transparent h-px w-1/4" />
+
+              {/* Radial Gradient */}
+              <div className="absolute inset-0 w-full h-full bg-white dark:bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+            </div>
           </div>
-          <motion.div 
-            className="h-[1px] w-full bg-gradient-to-r from-transparent via-gray-400 to-transparent opacity-100"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-          />
-        </div>
+        </motion.div>
       </div>
       <section id="about" className="mt-16 mb-40 w-full px-4 md:px-8 lg:px-16">
         <FocusCards cards={cards} />
