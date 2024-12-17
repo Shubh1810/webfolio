@@ -3,9 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { TfiSoundcloud } from 'react-icons/tfi';
 import { FlipWords } from '../../Components/Common/ui/flip-words';
-import { Button } from '../Common/ui/button';
 import { useTheme } from 'next-themes';
 
 // Define a type for the Vanta effect
@@ -93,8 +91,6 @@ const HeroSection: React.FC = () => {
 
         {/* Inverted bottom blend - increased height and smoother transition */}
         <div className="absolute bottom-0 translate-y-full w-full h-32 bg-gradient-to-b from-white dark:from-black via-white/95 dark:via-black/95 to-transparent" />
-
-
       </div>
       
       {/* Hero Content and Profile Picture Container */}
@@ -120,25 +116,18 @@ const HeroSection: React.FC = () => {
               className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-500 font-mono"
             />
           </div>
-          
-          <div className="flex gap-6 justify-start mt-8 flex-row">
-            <Button
-              text="Beta"
-              href="/beta"
-              icon={<TfiSoundcloud className="h-6 w-6" />}
-            />
-          </div>
+
         </div>
 
         {/* Profile Picture */}
         {profileImageSrc && (
           <div className="mb-8 md:mb-0 md:mt-0 self-center md:self-center relative md:mr-8 lg:mr-16">
             {/* Black shadow glow effect */}
-            <div className="absolute -inset-2 rounded-full bg-black opacity-100 animate-fade-in blur-2xl" />
+            <div className="absolute -inset-2 rounded-full bg-black blur-2xl" />
             
             {/* Indian flag gradient glow effect - only in dark mode */}
             <div 
-              className="absolute -inset-2 rounded-full bg-gradient-to-b from-orange-400 via-slate-100/80 to-green-400 opacity-0 blur-2xl hidden dark:block transition-opacity duration-700 ease-in-out"
+              className="absolute -inset-2 rounded-full bg-gradient-to-b from-orange-400 via-slate-100/80 to-green-400 blur-2xl hidden dark:block transition-opacity duration-700 ease-in-out"
               style={{ opacity: mounted ? 0.25 : 0 }}
             />
             

@@ -4,7 +4,6 @@ import { cn } from "../../../lib/utils";
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
 import { HiHome, HiCode, HiSun, HiMoon } from 'react-icons/hi';
-import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { SignupFormDemo } from "@/app/Components/Common/ui/SignupForm";
 
@@ -35,19 +34,7 @@ export const FloatingNav = ({
       link: "/projects",
       icon: <HiCode className="w-5 h-5" />,
     },
-    {
-      name: "",
-      link: "/none",
-      icon: (
-        <Image 
-          src="/usdc-logo.png"  // Adjust path to match your asset location
-          alt="USDC"
-          width={20}
-          height={20}
-          className="w-5 h-5"
-        />
-      ),
-    },
+    
   ];
 
   return (
