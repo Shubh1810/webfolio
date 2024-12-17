@@ -13,7 +13,7 @@ const products = [
   },
   // ... rest of the products array (copy from app/page.tsx)
   {
-    title: "To be added.",
+    title: "Multi-Agentic AI ",
     link: "https://gomoonbeam.com",
     thumbnail: "/skyline-0.jpg",
     description: "Mumbai is a platform for creating and sharing AI-powered content.",
@@ -43,9 +43,9 @@ const products = [
     description: "Mumbai is a platform for creating and sharing AI-powered content.",
   },
   {
-    title: "To be added......",
-    link: "https://gomoonbeam.com",
-    thumbnail: "/skyline-5.jpg",
+    title: "Research Assistant App",
+    link: "https://github.com/Shubh1810/kenny.git",
+    thumbnail: "/kira-project.png",
     description: "Mumbai is a platform for creating and sharing AI-powered content.",
   },
 
