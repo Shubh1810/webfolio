@@ -15,18 +15,12 @@ type Card = {
   logo: Logo;
 };
 
-// Function to determine the current theme
-const useDarkMode = (): boolean => {
-  // Implement your logic to determine if dark mode is active
-  return false; // Placeholder
-};
-
 // Function to get the correct logo based on the theme
-const getLogo = (logo: Logo, isDarkMode: boolean): string => {
+const getLogo = (logo: Logo): string => {
   if (typeof logo === 'string') {
     return logo;
   }
-  return isDarkMode ? logo.dark : logo.light;
+  return logo.dark; // Always use dark theme logo
 };
 
 export const Card = React.memo(
@@ -94,7 +88,7 @@ export const Card = React.memo(
         {/* Logo */}
         <div className="absolute -top-12 z-20 w-32 h-24 flex items-center justify-center">
           <Image
-            src={getLogo(card.logo, useDarkMode())}
+            src={getLogo(card.logo)}
             alt={`${card.title} logo`}
             width={logoSize.width}
             height={logoSize.height}
@@ -107,7 +101,7 @@ export const Card = React.memo(
           onMouseEnter={() => setHovered(index)}
           onMouseLeave={() => setHovered(null)}
           className={cn(
-            "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-96 w-full",
+            "rounded-lg relative bg-neutral-900 overflow-hidden h-60 md:h-96 w-full",
             "transition-all duration-500 ease-out",
             getShadowColor(card.title),
             "hover:-translate-y-2",

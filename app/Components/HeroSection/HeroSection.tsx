@@ -3,8 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FlipWords } from '../../Components/Common/ui/flip-words';
-import { useTheme } from 'next-themes';
+import { FlipWords } from '../Common/ui/flip-words';
 
 // Define a type for the Vanta effect
 type VantaEffect = {
@@ -15,7 +14,6 @@ const HeroSection: React.FC = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
   const [vantaEffect, setVantaEffect] = useState<VantaEffect>(null);
   const [mounted, setMounted] = useState(false);
-  const { theme } = useTheme();
 
   // Split into two separate effects
   useEffect(() => {
@@ -23,7 +21,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Only proceed with Vanta setup if mounted
+    // Only proceed if mounted
     if (!mounted) return;
 
     // Load THREE.js first
@@ -53,7 +51,7 @@ const HeroSection: React.FC = () => {
             minHeight: 200.0,
             scale: 1.0,
             scaleMobile: 1.0,
-            color: theme === 'dark' ? 0x10105 : 0x959596,
+            color: 0x10105, // Always use dark theme color
             shininess: 35.0,
             waveHeight: 15.0,
             zoom: 0.75,
@@ -68,7 +66,7 @@ const HeroSection: React.FC = () => {
     return () => {
       if (vantaEffect) vantaEffect.destroy();
     };
-  }, [mounted, theme]);
+  }, [mounted]);
 
   // Profile Image Source
   const profileImageSrc = '/mainpicc.png'; // Update path as needed
@@ -84,13 +82,13 @@ const HeroSection: React.FC = () => {
       {/* Edge blending gradients */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
         {/* Top blend - increased height and smoother transition */}
-        <div className="absolute -top-20 w-full h-52 bg-gradient-to-b from-white from-5% via-white/98 via-30% via-white/95 via-60% dark:from-black dark:via-black/98 dark:via-black/95 to-transparent" />
+        <div className="absolute -top-20 w-full h-52 bg-gradient-to-b from-black from-5% via-black/98 via-30% via-black/95 via-60% to-transparent" />
 
         {/* Bottom blend - increased height and smoother transition */}
-        <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-white from-5% via-white/98 via-30% via-white/95 via-60% dark:from-black dark:via-black/98 dark:via-black/95 to-transparent" />
+        <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-black from-5% via-black/98 via-30% via-black/95 via-60% to-transparent" />
 
         {/* Inverted bottom blend - increased height and smoother transition */}
-        <div className="absolute bottom-0 translate-y-full w-full h-32 bg-gradient-to-b from-white dark:from-black via-white/95 dark:via-black/95 to-transparent" />
+        <div className="absolute bottom-0 translate-y-full w-full h-32 bg-gradient-to-b from-black via-black/95 to-transparent" />
       </div>
       
       {/* Hero Content and Profile Picture Container */}
@@ -98,7 +96,7 @@ const HeroSection: React.FC = () => {
         {/* Hero Content */}
         <div className="flex flex-col items-start justify-center w-full mt-8 md:mt-0 md:ml-8 lg:ml-16">
           <motion.h1
-            className="bg-clip-text text-transparent text-left bg-gradient-to-br from-black via-gray-700 to-gray-800 dark:from-gray-100 dark:via-gray-300 dark:to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
+            className="bg-clip-text text-transparent text-left bg-gradient-to-br from-gray-100 via-gray-300 to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
@@ -121,14 +119,16 @@ const HeroSection: React.FC = () => {
 
         {/* Profile Picture */}
         {profileImageSrc && (
-          <div className="mb-8 md:mb-0 md:mt-0 self-center md:self-center relative md:mr-8 lg:mr-16">
-            {/* Black shadow glow effect */}
-            <div className="absolute -inset-2 rounded-full bg-black blur-2xl" />
-            
-            {/* Indian flag gradient glow effect - only in dark mode */}
+          <div className="mb-8 md:mb-0 md:mt-0 self-center md:self-center relative md:mr-8 lg:mr-16">            
+            {/* Indian flag gradient glow effect */}
             <div 
-              className="absolute -inset-2 rounded-full bg-gradient-to-b from-orange-400 via-slate-100/80 to-green-400 blur-2xl hidden dark:block transition-opacity duration-700 ease-in-out"
-              style={{ opacity: mounted ? 0.25 : 0 }}
+              className="absolute -inset-2 rounded-[50%] bg-gradient-to-b from-orange-400 via-slate-100/80 to-green-400 blur-2xl block"
+              style={{ 
+                opacity: mounted ? 0.25 : 0,
+                transform: `scale(${mounted ? '1' : '0.8'})`,
+                transition: 'all 0.5s ease-in-out',
+                visibility: mounted ? 'visible' : 'hidden'
+              }}
             />
             
             <Image
@@ -137,11 +137,11 @@ const HeroSection: React.FC = () => {
               width={150}
               height={150}
               priority={true}
-              className="relative object-cover md:w-[200px] md:h-[200px] transition-all duration-300"
-              onLoad={(event) => {
-                const img = event.target as HTMLImageElement;
-                img.classList.remove('opacity-0');
-                img.classList.add('opacity-100');
+              className="relative object-cover md:w-[200px] md:h-[200px] rounded-full transition-all duration-500"
+              style={{ 
+                opacity: mounted ? 1 : 0,
+                transform: `scale(${mounted ? '1' : '0.95'})`,
+                transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out'
               }}
             />
           </div>
@@ -151,5 +151,4 @@ const HeroSection: React.FC = () => {
   );
 };
           
-
 export default HeroSection;
