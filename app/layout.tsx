@@ -8,7 +8,7 @@ import { cn } from "./lib/utils";
 
 export const metadata: Metadata = {
   title: 'Shubh Sheth | AI Developer & Consultancy',
-  description: 'A 23 year old in Palo Alto building the next big thing as an AI software developer specializing in machine learning, generative AI, and innovative tech solutions',
+  description: 'Shubh Sheth - A 23 year old in Palo Alto building the next big thing as an AI software developer specializing in machine learning, generative AI, and innovative tech solutions',
   keywords: ['Shubh Sheth', 'Shubh', 'Sheth', 'Crypto trading', 'AI Solution', 'Tech Solutions', 'AI developer', 'AI engineer', 'Machine Learning Engineer', 'prompt engineering', 'LLM', 'Generative AI', 'Generative AI Engineer', 'Generative AI Developer', "dev"],
   authors: [{ name: 'Shubh Sheth' }],
   metadataBase: new URL('https://shubhsheth.info'),
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Shubh Sheth | AI Developer & Tech Solutions',
-    description: 'A 23 year old in Palo Alto building the next big thing as an AI software developer specializing in machine learning, generative AI, and innovative tech solutions',
+    title: 'Shubh Sheth | AI Developer & Consultancy',
+    description: 'Shubh Sheth - A 23 year old in Palo Alto building the next big thing as an AI software developer specializing in machine learning, generative AI, and innovative tech solutions',
     url: 'https://shubhsheth.info',
     siteName: 'Shubh Sheth',
     images: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Shubh Sheth | AI Developer',
-    description: 'A 23 year old in Palo Alto building the next big thing',
+    description: 'Shubh Sheth - A 23 year old in Palo Alto building the next big thing',
     images: [{
       url: '/thumbnail-s.jpeg',
       alt: 'Shubh Sheth - AI Developer',
@@ -87,15 +87,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "@type": "Organization",
                 "name": "Self-employed"
               },
-              "description": "AI software developer specializing in machine learning and generative AI solutions",
+              "description": "Shubh Sheth - AI software developer specializing in machine learning and generative AI solutions and consultancy",
               "sameAs": [
                 "https://github.com/Shubh1810",
                 "https://linkedin.com/in/yourprofile",
                 // Add your other social media profiles
-              ]
+              ],
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://shubhsheth.info"
+              }
             })
           }}
         />
+        <meta name="author" content="Shubh Sheth" />
       </head>
       <body className={cn(
         "antialiased"
