@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { FloatingNav } from './Components/Common/ui/floating-navbar';
 import StaticFooter from './Components/StaticFooter/StaticFooter';
 import { cn } from "./lib/utils";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: 'Shubh Sheth | AI Developer & Consultancy',
@@ -120,6 +121,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         {children}
         <StaticFooter />
+        <Analytics />
       </body>
     </html>
   );
