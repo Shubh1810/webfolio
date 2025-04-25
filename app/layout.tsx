@@ -7,20 +7,28 @@ import { ThemeProvider } from './providers/ThemeProvider'
 import { cn } from "./lib/utils";
 
 export const metadata: Metadata = {
-  title: 'Shubh Sheth',
-  description: 'Personal website showcasing my work as an AI software developer',
-  keywords: ['Shubh Sheth', 'Shubh', 'Sheth', 'developer', 'software engineer', 'web development', 'AI developer', 'AI engineer', 'Machine Learning Engineer', 'prompt engineering', 'LLM', 'Generative AI', 'Generative AI Engineer', 'Generative AI Developer',],
+  title: 'Shubh Sheth | AI Developer & Consultancy',
+  description: 'A 23 year old in Palo Alto building the next big thing as an AI software developer specializing in machine learning, generative AI, and innovative tech solutions',
+  keywords: ['Shubh Sheth', 'Shubh', 'Sheth', 'Crypto trading', 'AI Solution', 'Tech Solutions', 'AI developer', 'AI engineer', 'Machine Learning Engineer', 'prompt engineering', 'LLM', 'Generative AI', 'Generative AI Engineer', 'Generative AI Developer', "dev"],
   authors: [{ name: 'Shubh Sheth' }],
+  metadataBase: new URL('https://shubhsheth.info'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/',
+    },
+  },
   openGraph: {
-    title: 'Shubh Sheth',
-    description: 'Personal website showcasing my work as an AI software developer',
+    title: 'Shubh Sheth | AI Developer & Tech Solutions',
+    description: 'A 23 year old in Palo Alto building the next big thing as an AI software developer specializing in machine learning, generative AI, and innovative tech solutions',
     url: 'https://shubhsheth.info',
     siteName: 'Shubh Sheth',
     images: [
       {
-        url: '/thumbnail-s.jpeg', // Add your Open Graph image
+        url: '/thumbnail-s.jpeg',
         width: 1200,
         height: 630,
+        alt: 'Shubh Sheth - AI Developer',
       }
     ],
     locale: 'en_US',
@@ -28,27 +36,66 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shubh Sheth',
-    description: 'Silicon Valley Developer building the next big thing',
-    images: ['/og-image.png'],
+    title: 'Shubh Sheth | AI Developer',
+    description: 'A 23 year old in Palo Alto building the next big thing',
+    images: [{
+      url: '/thumbnail-s.jpeg',
+      alt: 'Shubh Sheth - AI Developer',
+    }],
+    creator: '@shubhsheth',
+    site: '@shubhsheth',
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   icons: {
     icon: '/thumbnail-s.jpeg',
     shortcut: '/thumbnail-s.jpeg',
     apple: '/thumbnail-s.jpeg',
-  }
+  },
+  verification: {
+    google: 'your-google-site-verification-code', // Add your Google verification code if you have one
+  },
+  category: 'technology',
 };
-
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/thumbnail-s.jpeg" />
+        {/* JSON-LD structured data for better SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Shubh Sheth",
+              "url": "https://shubhsheth.info",
+              "image": "https://shubhsheth.info/thumbnail-s.jpeg",
+              "jobTitle": "AI Software Developer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Self-employed"
+              },
+              "description": "AI software developer specializing in machine learning and generative AI solutions",
+              "sameAs": [
+                "https://github.com/Shubh1810",
+                "https://linkedin.com/in/yourprofile",
+                // Add your other social media profiles
+              ]
+            })
+          }}
+        />
       </head>
       <body className={cn(
         "antialiased"
