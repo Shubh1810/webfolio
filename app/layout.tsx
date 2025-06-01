@@ -7,9 +7,9 @@ import { cn } from "./lib/utils";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
-  title: 'Shubh Sheth | AI Developer & Consultancy',
+  title: 'Shubh Sheth | AI Agent Developer',
   description: 'Shubh Sheth - A 23 year old in Palo Alto building the next big thing as an AI software developer specializing in machine learning, generative AI, and innovative tech solutions',
-  keywords: ['Shubh Sheth', 'Shubh', 'Sheth', 'Crypto trading', 'AI Solution', 'Tech Solutions', 'AI developer', 'AI engineer', 'Machine Learning Engineer', 'prompt engineering', 'LLM', 'Generative AI', 'Generative AI Engineer', 'Generative AI Developer', "dev"],
+  keywords: ['Shubh Sheth', 'Shubh', 'Sheth', 'Crypto trading', 'AI Solution', 'Tech Solutions', 'AI developer', 'AI engineer', 'Machine Learning Engineer', 'prompt engineering', 'LLM', 'Generative AI', 'Generative AI Engineer', 'Generative AI Developer', "dev", "AI Agent Developer", "AI Agent Engineer", "AI Agent", "Agentic Workflow", "Agentic Automation", "Automation"],
   authors: [{ name: 'Shubh Sheth' }],
   metadataBase: new URL('https://shubhsheth.info'),
   alternates: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: '/thumbnail-s.jpeg',
         width: 1200,
         height: 630,
-        alt: 'Shubh Sheth - AI Developer',
+        alt: 'Shubh Sheth - AI Agent Developer',
       }
     ],
     locale: 'en_US',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shubh Sheth | AI Developer',
+    title: 'Shubh Sheth | AI Agent Developer',
     description: 'Shubh Sheth - A 23 year old in Palo Alto building the next big thing',
     images: [{
       url: '/thumbnail-s.jpeg',

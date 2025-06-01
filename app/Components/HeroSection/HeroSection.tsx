@@ -92,9 +92,9 @@ const HeroSection: React.FC = () => {
       </div>
       
       {/* Hero Content and Profile Picture Container */}
-      <div className="relative z-[2] h-full flex flex-col-reverse md:flex-row md:justify-between items-center p-8 max-w-[100rem] mx-auto">
+      <div className="relative z-[2] h-full flex flex-col-reverse md:flex-row md:justify-center md:gap-x-20 items-center p-8 max-w-[100rem] mx-auto">
         {/* Hero Content */}
-        <div className="flex flex-col items-start justify-center w-full mt-8 md:mt-0 md:ml-8 lg:ml-16">
+        <div className="flex flex-col items-start justify-center mt-8 md:mt-0">
           <motion.h1
             className="bg-clip-text text-transparent text-left bg-gradient-to-br from-gray-100 via-gray-300 to-gray-500 text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight"
             initial={{ opacity: 0, y: -50 }}
@@ -109,43 +109,50 @@ const HeroSection: React.FC = () => {
 
           <div className="mt-4 text-base md:text-xl font-mono">
             <FlipWords 
-              words={["AI | ML Developer", "Web3 | Crypto Enthusiast", "Python Developer", "Autonomous Systems Developer", "Full Stack Developer", "Data Analyst", "Systems Architect"]}
+              words={["Machine Learning Researcher", "Web3 | Crypto Enthusiast", "Python Developer", "Autonomous Systems Developer", "Full Stack Developer", "Data Engineer", "AI Agent Developer"]}
               duration={2000}
               className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-500 font-mono"
             />
           </div>
 
-        </div>
-
-        {/* Profile Picture */}
-        {profileImageSrc && (
-          <div className="mb-8 md:mb-0 md:mt-0 self-center md:self-center relative md:mr-8 lg:mr-16">            
-            {/* Indian flag gradient glow effect */}
-            <div 
-              className="absolute -inset-2 rounded-[50%] bg-gradient-to-b from-orange-400 via-slate-100/80 to-green-400 blur-2xl block"
-              style={{ 
-                opacity: mounted ? 0.25 : 0,
-                transform: `scale(${mounted ? '1' : '0.8'})`,
-                transition: 'all 0.5s ease-in-out',
-                visibility: mounted ? 'visible' : 'hidden'
-              }}
-            />
-            
+          {/* Python Image */}
+          <div className="absolute -bottom-20 -left-40 z-21 p-0 translate-y-80">
             <Image
-              src={profileImageSrc}
-              alt="Profile Picture"
-              width={150}
-              height={150}
-              priority={true}
-              className="relative object-cover md:w-[200px] md:h-[200px] rounded-full transition-all duration-500"
-              style={{ 
-                opacity: mounted ? 1 : 0,
-                transform: `scale(${mounted ? '1' : '0.95'})`,
-                transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out'
-              }}
+              src="/python.png"
+              alt="Python Logo"
+              width={600}
+              height={400}
+              className="object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 [mask-image:linear-gradient(to_bottom,white_70%,transparent_100%)]"
             />
           </div>
-        )}
+        </div>
+
+        {/* Profile Picture / Image Container */}
+        <div className="mb-8 md:mb-0 md:mt-0 self-center md:self-center relative md:mr-8 lg:mr-16">
+          {/* Indian flag gradient glow effect */}
+          <div 
+            className="absolute -inset-2 rounded-[50%] bg-gradient-to-b from-orange-400 via-slate-100/80 to-green-400 blur-2xl block"
+            style={{ 
+              opacity: mounted ? 0.25 : 0,
+              transform: `scale(${mounted ? '1' : '0.8'})`,
+              transition: 'all 0.5s ease-in-out',
+              visibility: mounted ? 'visible' : 'hidden'
+            }}
+          />
+          <Image
+            src={profileImageSrc}
+            alt="Profile Picture"
+            width={150}
+            height={150}
+            priority={true}
+            className="relative object-cover md:w-[200px] md:h-[200px] rounded-full transition-all duration-500"
+            style={{ 
+              opacity: mounted ? 1 : 0,
+              transform: `scale(${mounted ? '1' : '0.95'})`,
+              transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out'
+            }}
+          />
+        </div>
       </div>
     </div>
   );

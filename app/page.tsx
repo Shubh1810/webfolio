@@ -14,7 +14,7 @@ const cards = [
     description: "B.S. in Computer Science and Engineering",
     src: "/psu.jpg",
     logo: {
-      dark: "/psu-white.png",
+      dark: "/psu.png",
       light: "/psu.png",
     },
   },
@@ -51,11 +51,11 @@ const items = [
     </div>,
   },
   {
-    quote: "TypeScript",
-    name: "React.js | React Hooks | React Toolkit | Next.js | Node.js ",
+    quote: "UX",
+    name: "TypeScript | React | Next.js | Node.js | Tailwind CSS | Framer Motion | Figma",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
-        i < 3 ? 
+        i < 5 ? 
           <FaStar key={i} className="text-red-500 dark:text-violet-800/70" /> :
           <FaRegStar key={i} className="text-red-500 dark:text-violet-800/70" />
       ))}
@@ -63,7 +63,7 @@ const items = [
   },
   {
     quote: "Developer Tools",
-    name: "Git | GitHub | VSCode | Jupyter Notebook | Eclipse  ",
+    name: "GitLab | GitHub | VSCode | Jupyter Notebook | Eclipse | OpenAI API| Anthropic API",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 5 ? 
@@ -77,7 +77,7 @@ const items = [
     name: "AWS | S3 | Lambda | Google Cloud | Docker | Kubernetes | Nginx",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
-        i < 4 ? 
+        i < 3 ? 
           <FaStar key={i} className="text-red-500 dark:text-violet-800/70" /> :
           <FaRegStar key={i} className="text-red-500 dark:text-violet-800/70" />
       ))}
@@ -85,7 +85,7 @@ const items = [
   },
   {
     quote: "AI",
-    name: "LangChain | LangFlow | PyTorch | TensorFlow | TensorFlow.js | TensorFlow Lite | Scikit-Learn | Keras | SciPy | OpenCV | Tesseract  ",
+    name: "LangChain | LangGraph | PyTorch | TensorFlow | Scikit-Learn | Keras | SciPy | OpenCV | Tesseract | AutoGen",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 5 ? 
@@ -97,7 +97,7 @@ const items = [
   },
   {
     quote: "System Design",
-    name: " Microservices | Domain-driven design",
+    name: " Microservices | Domain-driven design | GraphQL | RESTful APIs | API Development | WebSockets",
     title: <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
         i < 4 ? 
