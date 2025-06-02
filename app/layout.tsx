@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Shubh Sheth | AI Developer & Consultancy',
+    title: 'Shubh Sheth | AI Agent Developer',
     description: 'Shubh Sheth - A 23 year old in Palo Alto building the next big thing as an AI software developer specializing in machine learning, generative AI, and innovative tech solutions',
     url: 'https://shubhsheth.info',
     siteName: 'Shubh Sheth',
@@ -90,7 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "description": "Shubh Sheth - AI software developer specializing in machine learning and generative AI solutions and consultancy",
               "sameAs": [
                 "https://github.com/Shubh1810",
-                "https://linkedin.com/in/yourprofile",
+                "https://www.linkedin.com/in/shubh-sheth-98219433l/",
                 // Add your other social media profiles
               ],
               "mainEntityOfPage": {
