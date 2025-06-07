@@ -69,7 +69,7 @@ const HeroSection: React.FC = () => {
   }, [mounted]);
 
   // Profile Image Source
-  const profileImageSrc = '/back.PNG'; // Update path as needed
+  const profileImageSrc = '/mainpicc.png'; // Using the older profile picture
 
   return (
     <div className="relative h-[60vh] w-full mt-14 md:-mt-3">
@@ -118,24 +118,27 @@ const HeroSection: React.FC = () => {
 
         {/* Profile Picture */}
         <div className="mb-8 md:mb-0 md:mt-0 self-center md:self-center relative md:mr-8 lg:mr-16">            
-          {/* Indian flag gradient glow effect */}
+          {/* Indian flag gradient glow effect - full circle background */}
           <div 
-            className="absolute -inset-2 bg-gradient-to-b from-orange-400 via-slate-100/80 to-green-400 blur-2xl block rounded-full"
+            className="absolute inset-0 bg-gradient-to-b from-orange-400/50 via-white/30 to-green-400/50 rounded-full blur-lg"
             style={{ 
-              opacity: mounted ? 0.25 : 0,
-              transform: `scale(${mounted ? '1' : '0.8'})`,
-              transition: 'all 0.5s ease-in-out',
-              visibility: mounted ? 'visible' : 'hidden'
+              opacity: mounted ? 0.2 : 0,
+              transform: `scale(${mounted ? '1.1' : '0.9'})`,
+              transition: 'all 0.6s ease-in-out',
+              visibility: mounted ? 'visible' : 'hidden',
+              width: '100%',
+              height: '100%',
+              aspectRatio: '1/1'
             }}
           />
           
           <Image
             src={profileImageSrc}
             alt="Profile Picture"
-            width={300}
-            height={300}
+            width={250}
+            height={250}
             priority={true}
-            className="relative object-cover md:w-[400px] md:h-[400px] transition-all duration-500 [mask-image:linear-gradient(to_bottom,white_93%,transparent_100%)]"
+            className="relative object-cover w-[250px] h-[250px] md:w-[300px] md:h-[300px] rounded-full transition-all duration-500 [mask-image:linear-gradient(to_bottom,white_93%,transparent_100%)]"
             style={{ 
               opacity: mounted ? 1 : 0,
               transform: `scale(${mounted ? '1' : '0.95'})`,
