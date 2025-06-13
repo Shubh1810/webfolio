@@ -148,7 +148,7 @@ export const ProductCard = ({
           src={product.thumbnail}
           height="600"
           width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0"
+          className="object-contain absolute h-full w-full inset-0 bg-gray-100 dark:bg-gray-800"
           alt={product.title}
         />
         <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none transition-opacity duration-300" />

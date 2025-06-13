@@ -15,7 +15,7 @@ const products = [
   {
     title: "Multi-Agentic AI ",
     link: "https://gomoonbeam.com",
-    thumbnail: "/skyline-0.jpg",
+    thumbnail: "/kira-project.png",
     description: "Mumbai is a platform for creating and sharing AI-powered content.",
   },
   {
@@ -37,15 +37,15 @@ const products = [
     description: "Mumbai is a platform for creating and sharing AI-powered content.",
   },
   {
-    title: "To be added.....",
+    title: "Acuron Products - India",
     link: "https://gomoonbeam.com",
-    thumbnail: "/skyline-4.jpg",
+    thumbnail: "/acuron.png",
     description: "Mumbai is a platform for creating and sharing AI-powered content.",
   },
   {
-    title: "Research Assistant App",
-    link: "https://github.com/Shubh1810/kenny.git",
-    thumbnail: "/kira-project.png",
+    title: "AI Tender Automation System",
+    link: "https://github.com/Shubh1810/uptender-ai.git",
+    thumbnail: "/tender-proj.png",
     description: "Mumbai is a platform for creating and sharing AI-powered content.",
   },
 
