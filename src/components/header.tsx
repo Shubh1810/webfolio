@@ -32,19 +32,19 @@ export default function Header() {
 
   return (
     <header 
-      style={{
-        position: 'fixed !important' as any,
-        top: '0 !important' as any,
-        left: '0 !important' as any,
-        right: '0 !important' as any,
-        width: '100vw !important' as any,
-        zIndex: '99999 !important' as any,
-        padding: '1.5rem',
-        background: 'transparent',
-        border: 'transparent',
-        pointerEvents: 'auto',
-        transform: 'none !important' as any
-      }}
+              style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          width: '100vw',
+          zIndex: 99999,
+          padding: '1.5rem',
+          background: 'transparent',
+          border: 'transparent',
+          pointerEvents: 'auto' as const,
+          transform: 'none'
+        }}
     >
       <div className="flex justify-center">
         <button

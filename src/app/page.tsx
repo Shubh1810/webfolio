@@ -348,7 +348,7 @@ export default function Portfolio() {
                 title: 'Product Innovation',
                 description: 'From concept to deployment, building products that matter'
               }
-            ].map((feature, index) => (
+            ].map((feature) => (
               <div
                 key={feature.title}
                 className="group p-6 rounded-2xl glass-effect hover-lift"
@@ -399,7 +399,7 @@ export default function Portfolio() {
                 tech: ['Node.js', 'Docker', 'Kubernetes', 'GraphQL'],
                 status: 'Live'
               }
-            ].map((project, index) => (
+            ].map((project) => (
               <div
                 key={project.title}
                 className="group p-8 rounded-2xl glass-effect hover-lift"
@@ -455,7 +455,7 @@ export default function Portfolio() {
                 description: 'Created responsive web interfaces and interactive user experiences. Specialized in React ecosystem and modern CSS frameworks.',
                 achievements: ['Delivered 20+ client projects', 'Achieved 98% client satisfaction', 'Implemented design systems']
               }
-            ].map((exp, index) => (
+            ].map((exp) => (
               <div
                 key={exp.company}
                 className="p-8 rounded-2xl glass-effect hover-lift"
@@ -507,7 +507,7 @@ export default function Portfolio() {
                 year: '2016',
                 focus: 'Web Development & Database Systems'
               }
-            ].map((edu, index) => (
+            ].map((edu) => (
               <div
                 key={edu.degree}
                 className="p-8 rounded-2xl glass-effect hover-lift"
@@ -564,7 +564,7 @@ export default function Portfolio() {
                 value: 'github.com/shubhsheth',
                 href: 'https://github.com/shubhsheth'
               }
-            ].map((contact, index) => (
+            ].map((contact) => (
               <a
                 key={contact.title}
                 href={contact.href}
