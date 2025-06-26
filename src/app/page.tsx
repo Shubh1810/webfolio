@@ -9,6 +9,9 @@ export default function Portfolio() {
   const lenisRef = useRef<Lenis | null>(null)
   const { scrollY } = useScroll()
   
+  // Theme state
+  const [isDark, setIsDark] = useState(true)
+  
   // Mouse tracking eye state
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const [leftEyeCenter, setLeftEyeCenter] = useState({ x: 0, y: 0 })
@@ -16,6 +19,21 @@ export default function Portfolio() {
   
   // Optimized parallax transforms
   const y1 = useTransform(scrollY, [0, 300], [0, -50])
+
+  useEffect(() => {
+    // Check for theme from localStorage and document class
+    const savedTheme = localStorage.getItem('theme')
+    const documentIsDark = document.documentElement.classList.contains('dark')
+    setIsDark(savedTheme === 'dark' || documentIsDark)
+    
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+    
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     // Initialize Lenis with optimized settings for 2025
@@ -120,7 +138,9 @@ export default function Portfolio() {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="mb-8"
           >
-            <p className="text-base md:text-lg text-[#F5F5F0]/30 max-w-2xl mx-auto leading-relaxed">
+            <p className={`text-base md:text-lg max-w-2xl mx-auto leading-relaxed transition-colors duration-300 ${
+              isDark ? 'text-[#F5F5F0]/30' : 'text-[#2D1810]/30'
+            }`}>
               BUILDING AI PRODUCTS
             </p>
           </motion.div>
@@ -141,9 +161,7 @@ export default function Portfolio() {
             </div>
           </motion.div>
 
-
-
-                    {/* Social Links with Illuminati Eyes */}
+          {/* Social Links with Illuminati Eyes */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -163,42 +181,48 @@ export default function Portfolio() {
               >
                 {/* Triangle Container using CSS clip-path */}
                 <div 
-                  className="absolute inset-0 bg-[#F5F5F0] shadow-lg"
+                  className="absolute inset-0 shadow-lg transition-colors duration-300"
                   style={{
                     clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
-                    filter: 'drop-shadow(0 0 8px rgba(245, 245, 240, 0.3))'
+                    backgroundColor: isDark ? '#F5F5F0' : '#2D1810',
+                    filter: isDark
+                      ? 'drop-shadow(0 0 8px rgba(245, 245, 240, 0.3))' 
+                      : 'drop-shadow(0 0 8px rgba(45, 24, 16, 0.3))'
                   }}
                 >
                   {/* Inner Triangle Eye Area */}
                   <div 
-                    className="absolute bg-[#F5F5F0] opacity-90"
+                    className="absolute opacity-90 transition-colors duration-300"
                     style={{
                       width: '70%',
                       height: '70%',
                       left: '15%',
                       top: '25%',
-                      clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'
+                      clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+                      backgroundColor: isDark ? '#F5F5F0' : '#2D1810'
                     }}
                   >
                     {/* Pupil */}
                     <div 
-                      className="absolute bg-[#2D1810] rounded-full transition-all duration-150 ease-out"
+                      className="absolute rounded-full transition-all duration-150 ease-out"
                       style={{
                         width: '14px',
                         height: '14px',
                         left: '50%',
                         top: '60%',
+                        backgroundColor: isDark ? '#2D1810' : '#F5F5F0',
                         transform: `translate(calc(-50% + ${leftPupil.x}px), calc(-50% + ${leftPupil.y}px))`
                       }}
                     >
                       {/* Light reflection */}
                       <div 
-                        className="absolute bg-[#F5F5F0] rounded-full opacity-90"
+                        className="absolute rounded-full opacity-90 transition-colors duration-300"
                         style={{
                           width: '4px',
                           height: '4px',
                           left: '20%',
-                          top: '20%'
+                          top: '20%',
+                          backgroundColor: isDark ? '#F5F5F0' : '#2D1810'
                         }}
                       />
                     </div>
@@ -271,42 +295,48 @@ export default function Portfolio() {
               >
                 {/* Triangle Container using CSS clip-path */}
                 <div 
-                  className="absolute inset-0 bg-[#F5F5F0] shadow-lg"
+                  className="absolute inset-0 shadow-lg transition-colors duration-300"
                   style={{
                     clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
-                    filter: 'drop-shadow(0 0 8px rgba(245, 245, 240, 0.3))'
+                    backgroundColor: isDark ? '#F5F5F0' : '#2D1810',
+                    filter: isDark
+                      ? 'drop-shadow(0 0 8px rgba(245, 245, 240, 0.3))' 
+                      : 'drop-shadow(0 0 8px rgba(45, 24, 16, 0.3))'
                   }}
                 >
                   {/* Inner Triangle Eye Area */}
                   <div 
-                    className="absolute bg-[#F5F5F0] opacity-90"
+                    className="absolute opacity-90 transition-colors duration-300"
                     style={{
                       width: '70%',
                       height: '70%',
                       left: '15%',
                       top: '25%',
-                      clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'
+                      clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+                      backgroundColor: isDark ? '#F5F5F0' : '#2D1810'
                     }}
                   >
                     {/* Pupil */}
                     <div 
-                      className="absolute bg-[#2D1810] rounded-full transition-all duration-150 ease-out"
+                      className="absolute rounded-full transition-all duration-150 ease-out"
                       style={{
                         width: '14px',
                         height: '14px',
                         left: '50%',
                         top: '60%',
+                        backgroundColor: isDark ? '#2D1810' : '#F5F5F0',
                         transform: `translate(calc(-50% + ${rightPupil.x}px), calc(-50% + ${rightPupil.y}px))`
                       }}
                     >
                       {/* Light reflection */}
                       <div 
-                        className="absolute bg-[#F5F5F0] rounded-full opacity-90"
+                        className="absolute rounded-full opacity-90 transition-colors duration-300"
                         style={{
                           width: '4px',
                           height: '4px',
                           left: '20%',
-                          top: '20%'
+                          top: '20%',
+                          backgroundColor: isDark ? '#F5F5F0' : '#2D1810'
                         }}
                       />
                     </div>
@@ -316,20 +346,27 @@ export default function Portfolio() {
             </motion.div>
           </motion.div>
 
+          {/* About Me snippet */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.8, duration: 0.8 }}
+          >
+            <p className="text-xl md:text-1xl text-mocha-light/80 leading-relaxed max-w-2xl mx-auto mt-12">
+                I&apos;m Shubh Sheth - passionate AI Engineer and CS Student monetizing AI Agents. 
+                I specialize in creating multi-agentic AI systems that push the boundaries of what&apos;s possible in human-computer interaction.
+            </p>
+          </motion.div>
 
         </motion.div>
       </section>
 
       {/* About Section */}
       <section id="about" className="min-h-screen flex items-center justify-center py-32 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-light mb-8 gradient-text bangers-regular">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-5xl md:text-7xl font-light mb-8 gradient-text bangers-regular text-left">
             About Me
           </h2>
-          <p className="text-xl md:text-1xl text-mocha-light/80 leading-relaxed mb-12 max-w-2xl mx-auto">
-            I&apos;m Shubh Sheth - passionate AI Engineer and CS Student monetizing AI Agents. 
-            I specialize in creating multi-agentic AI systems that push the boundaries of what&apos;s possible in human-computer interaction.
-          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             {[
@@ -351,9 +388,9 @@ export default function Portfolio() {
             ].map((feature) => (
               <div
                 key={feature.title}
-                className="group p-6 rounded-2xl glass-effect hover-lift"
+                className="group p-6 rounded-2xl glass-effect hover-lift text-left"
               >
-                <span className="text-4xl mx-auto mb-4 block group-hover:scale-110 transition-transform duration-300">{feature.emoji}</span>
+                <span className="text-4xl mb-4 block group-hover:scale-110 transition-transform duration-300">{feature.emoji}</span>
                 <h3 className="text-xl font-semibold text-mocha-light mb-2">{feature.title}</h3>
                 <p className="text-mocha-light/70">{feature.description}</p>
               </div>
@@ -364,8 +401,8 @@ export default function Portfolio() {
 
       {/* Projects Section */}
       <section id="projects" className="min-h-screen flex items-center justify-center py-32 px-6">
-        <div className="max-w-6xl mx-auto">
-                      <h2 className="text-5xl md:text-7xl font-light mb-16 gradient-text bangers-regular text-center">
+        <div className="max-w-4xl mx-auto">
+                      <h2 className="text-5xl md:text-7xl font-light mb-16 gradient-text bangers-regular text-left">
               Projects
             </h2>
           
@@ -428,7 +465,7 @@ export default function Portfolio() {
       {/* Experience Section */}
       <section id="experience" className="min-h-screen flex items-center justify-center py-32 px-6">
         <div className="max-w-4xl mx-auto">
-                      <h2 className="text-5xl md:text-7xl font-light mb-16 gradient-text bangers-regular text-center">
+                      <h2 className="text-5xl md:text-7xl font-light mb-16 gradient-text bangers-regular text-left">
               Experience
             </h2>
           
@@ -484,51 +521,54 @@ export default function Portfolio() {
 
       {/* Education Section */}
       <section id="education" className="min-h-screen flex items-center justify-center py-32 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-light mb-16 gradient-text bangers-regular">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-5xl md:text-7xl font-light mb-16 gradient-text bangers-regular text-left">
             Education
           </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                emoji: '🎓',
-                degree: 'Master of Science',
-                field: 'Computer Science',
-                school: 'Tech University',
-                year: '2018',
-                focus: 'Artificial Intelligence & Machine Learning'
-              },
-              {
-                emoji: '📚',
-                degree: 'Bachelor of Engineering',
-                field: 'Software Engineering',
-                school: 'Engineering College',
-                year: '2016',
-                focus: 'Web Development & Database Systems'
-              }
-            ].map((edu) => (
-              <div
-                key={edu.degree}
-                className="p-8 rounded-2xl glass-effect hover-lift"
-              >
-                <span className="text-5xl mb-6 block">{edu.emoji}</span>
-                <h3 className="text-2xl font-semibold text-mocha-light mb-2">{edu.degree}</h3>
-                <p className="text-xl text-mocha-accent mb-2">{edu.field}</p>
-                <p className="text-mocha-light/70 mb-2">{edu.school}</p>
-                <p className="text-mocha-light/60 mb-4">{edu.year}</p>
-                <p className="text-sm text-mocha-light/80">{edu.focus}</p>
+          <div className="space-y-12">
+            {/* Using Flexbox for a robust two-column layout */}
+            <div className="flex flex-col md:flex-row gap-8">
+              {[
+                {
+                  emoji: '🎓',
+                  degree: 'Master of Science',
+                  field: 'Computer Science',
+                  school: 'Tech University',
+                  year: '2018',
+                  focus: 'Artificial Intelligence & Machine Learning'
+                },
+                {
+                  emoji: '📚',
+                  degree: 'Bachelor of Engineering',
+                  field: 'Software Engineering',
+                  school: 'Engineering College',
+                  year: '2016',
+                  focus: 'Web Development & Database Systems'
+                }
+              ].map((edu) => (
+                <div
+                  key={edu.degree}
+                  className="p-8 rounded-2xl glass-effect hover-lift text-left flex-1"
+                >
+                  <span className="text-5xl mb-6 block">{edu.emoji}</span>
+                  <h3 className="text-2xl font-semibold text-mocha-light mb-2">{edu.degree}</h3>
+                  <p className="text-xl text-mocha-accent mb-2">{edu.field}</p>
+                  <p className="text-mocha-light/70 mb-2">{edu.school}</p>
+                  <p className="text-mocha-light/60 mb-4">{edu.year}</p>
+                  <p className="text-sm text-mocha-light/80">{edu.focus}</p>
+                </div>
+              ))}
+            </div>
+            
+            <div className="p-6 rounded-2xl glass-effect text-left">
+              <h3 className="text-xl font-semibold text-mocha-light mb-4">Certifications & Courses</h3>
+              {/* Using a standard grid for certifications */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-mocha-light/70">
+                <div>• AWS Certified Solutions Architect</div>
+                <div>• Google Cloud Professional ML Engineer</div>
+                <div>• Advanced React & Next.js Specialization</div>
+                <div>• Machine Learning Engineering Certification</div>
               </div>
-            ))}
-          </div>
-          
-          <div className="mt-12 p-6 rounded-2xl glass-effect">
-            <h3 className="text-xl font-semibold text-mocha-light mb-4">Certifications & Courses</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-mocha-light/70">
-              <div>• AWS Certified Solutions Architect</div>
-              <div>• Google Cloud Professional ML Engineer</div>
-              <div>• Advanced React & Next.js Specialization</div>
-              <div>• Machine Learning Engineering Certification</div>
             </div>
           </div>
         </div>
@@ -536,8 +576,8 @@ export default function Portfolio() {
 
       {/* Contact Section */}
       <section id="contact" className="min-h-screen flex items-center justify-center py-32 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-light mb-8 gradient-text bangers-regular">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-5xl md:text-7xl font-light mb-8 gradient-text bangers-regular text-left">
             Let&apos;s Connect
           </h2>
           <p className="text-xl md:text-2xl text-mocha-light/80 leading-relaxed mb-12">
