@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import Lenis from 'lenis'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
@@ -224,7 +225,7 @@ export default function Portfolio() {
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                   </svg>
                 ), 
-                href: 'https://x.com/shubhs', 
+                href: 'https://x.com/sheth_js', 
                 label: 'X' 
               },
             ].map((social, index) => (
@@ -239,9 +240,11 @@ export default function Portfolio() {
                 transition={{ delay: 0.8 + index * 0.1 }}
               >
                 {typeof social.icon === 'string' ? (
-                  <img 
+                  <Image 
                     src={social.icon} 
                     alt={social.label}
+                    width={48}
+                    height={48}
                     className="w-12 h-12 object-contain"
                     style={{ filter: 'brightness(0) saturate(100%) invert(95%) sepia(6%) saturate(208%) hue-rotate(315deg) brightness(108%) contrast(94%)' }}
                   />
@@ -583,10 +586,10 @@ export default function Portfolio() {
           className="max-w-4xl mx-auto text-center"
         >
           <h2 className="text-5xl md:text-7xl font-light mb-8 gradient-text bangers-regular">
-            Let's Connect
+            Let&apos;s Connect
           </h2>
           <p className="text-xl md:text-2xl text-mocha-light/80 leading-relaxed mb-12">
-            Ready to build something amazing together? I'm always excited to discuss new opportunities and innovative projects.
+            Ready to build something amazing together? I&apos;m always excited to discuss new opportunities and innovative projects.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -656,14 +659,14 @@ export default function Portfolio() {
           className="text-mocha-light/60"
         >
           <p className="text-lg mb-4">Ready to build the future together?</p>
-          <motion.button
-            onClick={() => window.location.href = 'mailto:shubh@example.com'}
-            className="px-8 py-3 bg-mocha-accent text-mocha-brown rounded-full font-medium hover-lift hover:bg-mocha-light transition-colors duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Let's Connect
-          </motion.button>
+                      <motion.button
+              onClick={() => window.location.href = 'mailto:shubh@example.com'}
+              className="px-8 py-3 bg-mocha-accent text-mocha-brown rounded-full font-medium hover-lift hover:bg-mocha-light transition-colors duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Let&apos;s Connect
+            </motion.button>
         </motion.div>
       </footer>
     </div>
