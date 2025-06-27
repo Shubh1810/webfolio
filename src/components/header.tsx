@@ -32,24 +32,22 @@ export default function Header() {
 
   return (
     <header 
-              style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          width: '100vw',
-          zIndex: 99999,
-          padding: '1.5rem',
-          background: 'transparent',
-          border: 'transparent',
-          pointerEvents: 'auto' as const,
-          transform: 'none'
-        }}
+      className="fixed top-0 left-0 right-0 w-full z-[99999] p-6 pointer-events-none"
+      style={{
+        background: 'transparent',
+        border: 'none'
+      }}
     >
-      <div className="flex justify-center">
+      <div className="flex justify-center pointer-events-none">
         <button
           onClick={toggleTheme}
-          className="group relative p-3 rounded-full bg-transparent backdrop-blur-md border border-transparent hover:border-mocha-accent/20 transition-all duration-300"
+          className="group relative p-3 rounded-full bg-transparent border-0 pointer-events-auto transition-all duration-300"
+          style={{
+            background: 'transparent',
+            border: 'none',
+            outline: 'none',
+            pointerEvents: 'auto'
+          }}
           aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
         >
           {/* Toggle Icon */}
@@ -99,8 +97,7 @@ export default function Header() {
             </div>
           </div>
           
-          {/* Subtle glow effect */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-mocha-accent/10 to-mocha-light/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+
         </button>
       </div>
     </header>

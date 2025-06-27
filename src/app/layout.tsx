@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Amarante } from 'next/font/google'
 import { Bangers } from 'next/font/google'
+import { Ubuntu } from 'next/font/google'
 import Header from '@/components/header'
 import './globals.css'
 
@@ -26,6 +27,14 @@ const bangers = Bangers({
   variable: '--font-bangers',
   display: 'swap',
   weight: '400',
+  preload: true,
+})
+
+const ubuntu = Ubuntu({
+  subsets: ['latin'],
+  variable: '--font-ubuntu',
+  display: 'swap',
+  weight: ['300', '400', '500', '700'],
   preload: true,
 })
 
@@ -69,7 +78,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${amarante.variable} ${bangers.variable} dark`}>
+    <html lang="en" className={`${inter.variable} ${amarante.variable} ${bangers.variable} ${ubuntu.variable} dark`}>
       <head>
         {/* Preload critical resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -84,7 +93,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
       </head>
-      <body className="font-inter antialiased text-white overflow-x-hidden">
+      <body className="font-ubuntu antialiased text-white overflow-x-hidden">
         <Header />
         {children}
       </body>
