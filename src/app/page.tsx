@@ -408,7 +408,7 @@ export default function Portfolio() {
                   color: isDark ? 'rgba(245, 245, 240, 0.8)' : '#000000'
                 }}
               >
-                I'm pursuing a Bachelor of Science in Computer Science from Penn State University. That technical foundation combined with silicon valley exposure of shipping products that look elegant with go-to-market strategy.
+                I&apos;m pursuing a Bachelor of Science in Computer Science from Penn State University. That technical foundation combined with silicon valley exposure of shipping products that look elegant with go-to-market strategy.
               </p>
               {[
                 {
@@ -423,7 +423,7 @@ export default function Portfolio() {
                   title: 'AI Monetization',
                   description: 'Translating advanced ML systems into scalable revenue models'
                 }
-              ].map((expertise, index) => (
+              ].map((expertise) => (
                 <div
                   key={expertise.title}
                   className="p-6 rounded-2xl hover-lift transition-all duration-300"
@@ -471,7 +471,7 @@ export default function Portfolio() {
             {[
               'TenderPost',
               'Knox AI'
-            ].map((projectName, index) => (
+            ].map((projectName) => (
               <motion.div
                 key={projectName}
                 className="group cursor-pointer w-full"
